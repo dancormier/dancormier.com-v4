@@ -1,5 +1,5 @@
 {
-  "name": "dc-dot-com-v4",
+  "name": "dancormier.com-v4",
   "private": true,
   "description": "dancormier.com",
   "version": "4.0.0",
@@ -60,7 +60,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/dancormier/dc-dot-com-v4"
+    "url": "https://github.com/dancormier/dancormier.com-v4"
   },
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
