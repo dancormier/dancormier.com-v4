@@ -2,7 +2,7 @@
 import * as React from 'react'
 import { PageProps, useStaticQuery, graphql } from 'gatsby'
 import Layout from 'components/layout'
-import { jsx, Box, Heading, Link, IconButton, Text } from 'theme-ui'
+import { jsx, Heading, Link, Text } from 'theme-ui'
 import SEO from 'components/seo'
 import Socials from 'components/socials'
 
@@ -28,9 +28,8 @@ export default function Home(props: PageProps): React.ReactElement {
   return (
     <Layout
       sx={{
-        display: [null, null, null, 'flex'],
-        flexDirection: 'column',
-        justifyContent: 'center',
+        pt: '25vh',
+        textAlign: ['center', null, 'left'],
       }}
       {...props}
     >
@@ -43,15 +42,16 @@ export default function Home(props: PageProps): React.ReactElement {
         <Heading
           as="h1"
           sx={{
-            fontSize: [6, null, null, 7],
+            fontSize: [6, null, 8],
           }}
         >
           {author}
         </Heading>
         <Heading
           as="h2"
+          color="gray"
           sx={{
-            fontSize: 5,
+            fontSize: [4, null, 6],
             fontWeight: 400,
           }}
         >
@@ -61,7 +61,7 @@ export default function Home(props: PageProps): React.ReactElement {
           as="p"
           sx={{
             fontSize: 3,
-            py: 4,
+            pt: [5, null, 4],
           }}
         >
           I live in {location}. I work for
@@ -70,7 +70,8 @@ export default function Home(props: PageProps): React.ReactElement {
         </Text>
         <Socials
           sx={{
-            fontSize: 5,
+            fontSize: [4, null, 5],
+            pt: 5,
           }}
         />
       </div>

@@ -65,6 +65,14 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [`ovo`],
+        display: 'swap',
+      },
+    },
+
+    {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: 'Gatsby Starter Blog',

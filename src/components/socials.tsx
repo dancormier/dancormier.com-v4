@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import * as React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import { jsx, Box, IconButton, Link } from 'theme-ui'
+import { jsx, Box, Link } from 'theme-ui'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons'
 import {
@@ -39,6 +39,7 @@ function Socials({ ...props }: SocialsProps): React.ReactElement {
       query {
         site {
           siteMetadata {
+            author
             social {
               name
               url
@@ -49,16 +50,23 @@ function Socials({ ...props }: SocialsProps): React.ReactElement {
       }
     `,
   )
-  const { social } = site.siteMetadata
+  const { author, social } = site.siteMetadata
 
   return (
     <Box {...props}>
       {social.map((s: SocialProps) => (
         <Link
           key={s.type}
+          aria-label={
+            s.type !== 'email'
+              ? `visit ${author}'s ${s.type}`
+              : `email ${author}`
+          }
           href={s.url}
           sx={{
-            mr: 3,
+            ml: [3, null, 0],
+            mr: [3, null, 4],
+            color: 'primary',
           }}
         >
           {Icon(s.type)}

@@ -1,15 +1,15 @@
-import { funk } from '@theme-ui/presets'
+import { base } from '@theme-ui/presets'
 
 export default {
-  ...funk,
-  styles: {
-    ...funk.styles,
-    body: {
-      height: '100vh',
-    },
+  ...base,
+  fonts: {
+    body:
+      'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
+    heading: 'Ovo, serif',
+    monospace: 'Menlo, monospace',
   },
   container: {
     maxWidth: 768,
-    minHeight: '95vh',
+    minHeight: '100vh',
   },
 }
