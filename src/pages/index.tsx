@@ -2,8 +2,9 @@
 import * as React from 'react'
 import { PageProps, useStaticQuery, graphql } from 'gatsby'
 import Layout from 'components/layout'
-import { jsx, Heading, Link, Text } from 'theme-ui'
+import { jsx, Box, Heading, Link, IconButton, Text } from 'theme-ui'
 import SEO from 'components/seo'
+import Socials from 'components/socials'
 
 export default function Home(props: PageProps): React.ReactElement {
   const { site } = useStaticQuery(
@@ -13,11 +14,6 @@ export default function Home(props: PageProps): React.ReactElement {
           siteMetadata {
             author
             location
-            social {
-              name
-              url
-              type
-            }
             workplace {
               name
               url
@@ -27,7 +23,7 @@ export default function Home(props: PageProps): React.ReactElement {
       }
     `,
   )
-  const { author, location, social, workplace } = site.siteMetadata
+  const { author, location, workplace } = site.siteMetadata
 
   return (
     <Layout
@@ -52,10 +48,19 @@ export default function Home(props: PageProps): React.ReactElement {
         >
           {author}
         </Heading>
-        <Heading as="h2">Front-end developer</Heading>
+        <Heading
+          as="h2"
+          sx={{
+            fontSize: 5,
+            fontWeight: 400,
+          }}
+        >
+          Front-end developer
+        </Heading>
         <Text
           as="p"
           sx={{
+            fontSize: 3,
             py: 4,
           }}
         >
@@ -63,6 +68,11 @@ export default function Home(props: PageProps): React.ReactElement {
           {` `}
           <Link href={workplace.url}>{workplace.name}</Link>.
         </Text>
+        <Socials
+          sx={{
+            fontSize: 5,
+          }}
+        />
       </div>
     </Layout>
   )
