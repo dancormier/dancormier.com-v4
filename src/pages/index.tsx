@@ -42,7 +42,7 @@ export default function Home(props: PageProps): React.ReactElement {
       >
         I live in {location}. I work for
         {` `}
-        <Link href={workplace.url}>{workplace.name}</Link>.
+        <Link href={workplace.url}>{workplace.name}</Link>. 👋
       </Text>
       <Socials
         sx={{
