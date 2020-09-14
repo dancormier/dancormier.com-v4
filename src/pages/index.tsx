@@ -60,8 +60,8 @@ export default function Home(props: PageProps): React.ReactElement {
         <Text
           as="p"
           sx={{
-            fontSize: 3,
-            pt: [5, null, 4],
+            fontSize: 4,
+            pt: 4,
           }}
         >
           I live in {location}. I work for
@@ -71,7 +71,7 @@ export default function Home(props: PageProps): React.ReactElement {
         <Socials
           sx={{
             fontSize: [4, null, 5],
-            pt: 5,
+            pt: 4,
           }}
         />
       </div>
