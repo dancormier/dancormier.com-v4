@@ -1,28 +1,36 @@
 /** @jsx jsx */
 import * as React from 'react'
-import { jsx, Container } from 'theme-ui'
+import { jsx, Box, Container } from 'theme-ui'
+import Header from 'components/header'
 import Footer from 'components/footer'
+import SEO from 'components/seo'
 
 type LayoutProps = {
   children?: React.ReactNode
+  pageTitle: string
   sx?: any
 }
 
-function Layout({ children, ...props }: LayoutProps): React.ReactElement {
+function Layout({
+  children,
+  pageTitle,
+  ...props
+}: LayoutProps): React.ReactElement {
   return (
     <Container
-      p={4}
+      {...props}
       sx={{
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'space-between',
-        px: 4,
-        pt: 4,
+        padding: 4,
         ...props.sx,
       }}
-      {...props}
     >
-      {children}
+      <Box sx={{ flexGrow: 1 }}>
+        <SEO title={pageTitle} />
+        <Header />
+        {children}
+      </Box>
       <Footer />
     </Container>
   )

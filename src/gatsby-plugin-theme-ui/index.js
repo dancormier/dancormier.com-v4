@@ -1,7 +1,19 @@
-import { base } from '@theme-ui/presets'
+import { tailwind } from '@theme-ui/presets'
+
+const theme = tailwind
 
 export default {
-  ...base,
+  ...theme,
+  styles: {
+    ...theme.styles,
+    a: {
+      ...theme.styles.a,
+      transition: '.1s',
+      '&:hover, &:focus': {
+        color: 'highlight',
+      },
+    },
+  },
   fonts: {
     body:
       'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',

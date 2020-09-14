@@ -1,11 +1,11 @@
 module.exports = {
   siteMetadata: {
     // edit below
-    title: `Dan Cormier: Front-end Developer`,
-    author: `Dan Cormier`,
-    description: `Front-end developer working for TED from Florida.`,
+    title: 'Front-end developer',
+    author: 'Dan Cormier',
+    description: 'Front-end developer working for TED from Florida.',
     location: 'Florida',
-    siteUrl: `https://dancormier.com/`,
+    siteUrl: 'https://dancormier.com/',
     social: [
       {
         type: 'github',
@@ -39,7 +39,7 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-typescript',
     {
-      resolve: `gatsby-plugin-alias-imports`,
+      resolve: 'gatsby-plugin-alias-imports',
       options: {
         alias: {
           components: 'src/components',
@@ -66,14 +66,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-fonts`,
-      options: {
-        fonts: [`ovo`],
-        display: 'swap',
-      },
-    },
-
-    {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: 'Gatsby Starter Blog',
@@ -93,10 +85,18 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-plugin-web-font-loader',
+      options: {
+        google: {
+          families: ['Ovo'],
+        },
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/content/assets`,
-        name: `assets`,
+        name: 'assets',
       },
     },
   ],

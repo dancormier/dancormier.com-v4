@@ -20,9 +20,9 @@ function Footer(): React.ReactElement {
   return (
     <footer>
       <Text
-        color="gray"
+        color="secondary"
         sx={{
-          textAlign: 'center',
+          textAlign: ['center', null, 'left'],
         }}
       >
         © {new Date().getFullYear()} {author}

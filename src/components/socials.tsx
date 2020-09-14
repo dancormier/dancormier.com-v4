@@ -66,7 +66,6 @@ function Socials({ ...props }: SocialsProps): React.ReactElement {
           sx={{
             ml: [3, null, 0],
             mr: [3, null, 4],
-            color: 'primary',
           }}
         >
           {Icon(s.type)}
