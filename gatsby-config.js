@@ -35,6 +35,7 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-fontawesome-css',
+    'gatsby-plugin-netlify-cms',
     'gatsby-plugin-offline',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-typescript',
