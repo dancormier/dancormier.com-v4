@@ -8,6 +8,24 @@ export default function Home(props: PageProps): React.ReactElement {
   const { site } = useStaticQuery(
     graphql`
       query {
+        # allFile(
+        #   filter: {
+        #     sourceInstanceName: { eq: "content" }
+        #     name: { eq: "home" }
+        #   }
+        # ) {
+        #   edges {
+        #     node {
+        #       childMarkdownRemark {
+        #         frontmatter {
+        #           title
+        #           intro
+        #           image
+        #         }
+        #       }
+        #     }
+        #   }
+        # }
         site {
           siteMetadata {
             author
