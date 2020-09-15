@@ -2,7 +2,7 @@ backend:
   name: github
   repo: dancormier/dancormier.com-v4
 
-media_folder: static/assets
+media_folder: content/assets
 public_folder: assets
 
 collections:
