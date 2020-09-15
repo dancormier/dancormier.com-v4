@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import * as React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import { jsx, Box, Heading } from 'theme-ui'
+import { jsx, Container, Styled } from 'theme-ui'
 
 type HeaderProps = {
   children?: React.ReactNode
@@ -23,26 +23,20 @@ function Header({ ...props }: HeaderProps): React.ReactElement {
   const { author, title } = site.siteMetadata
 
   return (
-    <Box as="header" {...props}>
-      <Heading
-        as="h1"
-        sx={{
-          fontSize: [6, null, 8],
-        }}
-      >
+    <Container as="header" {...props}>
+      <Styled.h1 as="h1" sx={{ fontSize: [5, null, 7] }}>
         {author}
-      </Heading>
-      <Heading
-        as="h2"
-        color="secondary"
+      </Styled.h1>
+      <Styled.h2
         sx={{
-          fontSize: [4, null, 5],
+          fontSize: [3, null, 5],
           fontWeight: 400,
+          marginTop: 1,
         }}
       >
         {title}
-      </Heading>
-    </Box>
+      </Styled.h2>
+    </Container>
   )
 }
 

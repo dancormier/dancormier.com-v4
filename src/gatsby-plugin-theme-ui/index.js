@@ -1,27 +1,35 @@
-import { tailwind } from '@theme-ui/presets'
+import { base as theme } from '@theme-ui/presets'
+import { merge } from 'theme-ui'
 
-const theme = tailwind
-
-export default {
-  ...theme,
+export default merge(theme, {
+  colors: {
+    text: '#000',
+    background: '#fff',
+    primary: '#07c',
+    secondary: '#30c',
+    muted: '#f6f6f6',
+  },
+  fonts: {
+    body: `Inter, ${theme.fonts.body}`,
+    sans: `Inter, ${theme.fonts.sans}`,
+  },
   styles: {
-    ...theme.styles,
     a: {
-      ...theme.styles.a,
       transition: '.1s',
       '&:hover, &:focus': {
         color: 'highlight',
       },
     },
+    h1: {
+      fontWeight: '900',
+      margin: 0,
+      textTransform: 'uppercase',
+    },
+    h2: {
+      color: 'gray',
+      fontWeight: '300',
+      margin: 0,
+      textTransform: 'uppercase',
+    },
   },
-  fonts: {
-    body:
-      'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
-    heading: 'Ovo, serif',
-    monospace: 'Menlo, monospace',
-  },
-  container: {
-    maxWidth: 768,
-    minHeight: '100vh',
-  },
-}
+})

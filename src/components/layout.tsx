@@ -4,35 +4,50 @@ import { jsx, Box, Container } from 'theme-ui'
 import Header from 'components/header'
 import Footer from 'components/footer'
 import SEO from 'components/seo'
+import Socials from 'components/socials'
 
 type LayoutProps = {
   children?: React.ReactNode
-  pageTitle: string
+  title: string
   sx?: any
 }
 
 function Layout({
   children,
-  pageTitle,
+  title,
   ...props
 }: LayoutProps): React.ReactElement {
   return (
-    <Container
-      {...props}
+    <Box
       sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        padding: 4,
+        pt: '25vh',
+        textAlign: ['center', null, 'left'],
         ...props.sx,
       }}
+      {...props}
     >
-      <Box sx={{ flexGrow: 1 }}>
-        <SEO title={pageTitle} />
+      <SEO title={title} />
+      <Container
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          minHeight: '100vh',
+          maxWidth: 768,
+        }}
+      >
         <Header />
-        {children}
-      </Box>
-      <Footer />
-    </Container>
+        <Box sx={{ flexGrow: 1 }}>
+          {children}
+          <Socials
+            sx={{
+              fontSize: [4, null, 5],
+              pt: 4,
+            }}
+          />
+        </Box>
+        <Footer />
+      </Container>
+    </Box>
   )
 }
 

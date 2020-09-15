@@ -3,7 +3,6 @@ import * as React from 'react'
 import { PageProps, useStaticQuery, graphql } from 'gatsby'
 import Layout from 'components/layout'
 import { jsx, Link, Text } from 'theme-ui'
-import Socials from 'components/socials'
 
 export default function Home(props: PageProps): React.ReactElement {
   const { site } = useStaticQuery(
@@ -25,18 +24,11 @@ export default function Home(props: PageProps): React.ReactElement {
   const { location, workplace } = site.siteMetadata
 
   return (
-    <Layout
-      sx={{
-        pt: '25vh',
-        textAlign: ['center', null, 'left'],
-      }}
-      {...props}
-      pageTitle="Home"
-    >
+    <Layout {...props} title="Home">
       <Text
         as="p"
         sx={{
-          fontSize: [1, null, 2],
+          fontSize: 2,
           pt: 4,
         }}
       >
@@ -44,12 +36,6 @@ export default function Home(props: PageProps): React.ReactElement {
         {` `}
         <Link href={workplace.url}>{workplace.name}</Link>. 👋
       </Text>
-      <Socials
-        sx={{
-          fontSize: [4, null, 5],
-          pt: 4,
-        }}
-      />
     </Layout>
   )
 }

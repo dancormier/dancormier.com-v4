@@ -37,6 +37,7 @@ module.exports = {
     'gatsby-plugin-fontawesome-css',
     'gatsby-plugin-offline',
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-theme-ui',
     'gatsby-plugin-typescript',
     {
       resolve: 'gatsby-plugin-alias-imports',
@@ -71,24 +72,14 @@ module.exports = {
         name: 'Gatsby Starter Blog',
         short_name: 'GatsbyJS',
         start_url: '/',
-        background_color: '#ffffff',
-        theme_color: '#222222',
-        display: 'minimal-ui',
         icon: 'content/assets/avatar.jpg',
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-theme-ui',
-      options: {
-        prismPreset: 'night-owl',
-        preset: '@theme-ui/preset-funk',
       },
     },
     {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
-          families: ['Ovo'],
+          families: [`Inter\:100,300,400,400i,700,900`],
         },
       },
     },
@@ -97,6 +88,12 @@ module.exports = {
       options: {
         path: `${__dirname}/content/assets`,
         name: 'assets',
+      },
+    },
+    {
+      resolve: 'gatsby-theme-style-guide',
+      options: {
+        basePath: '/design-system',
       },
     },
   ],

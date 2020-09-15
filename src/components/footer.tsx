@@ -20,7 +20,7 @@ function Footer(): React.ReactElement {
   return (
     <footer>
       <Text
-        color="secondary"
+        color="gray"
         sx={{
           textAlign: ['center', null, 'left'],
         }}
