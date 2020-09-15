@@ -3,11 +3,12 @@ import { merge } from 'theme-ui'
 
 export default merge(theme, {
   colors: {
-    text: '#000',
+    text: '#111',
     background: '#fff',
-    primary: '#07c',
-    secondary: '#30c',
-    muted: '#f6f6f6',
+    primary: '#2215d8',
+    secondary: '#6f66fb',
+    muted: '#e8e9f9',
+    highlight: '#6f66fb',
   },
   fonts: {
     body: `Inter, ${theme.fonts.body}`,
@@ -17,7 +18,7 @@ export default merge(theme, {
     a: {
       transition: '.1s',
       '&:hover, &:focus': {
-        color: 'highlight',
+        color: 'secondary',
       },
     },
     h1: {
@@ -26,7 +27,7 @@ export default merge(theme, {
       textTransform: 'uppercase',
     },
     h2: {
-      color: 'gray',
+      color: 'highlight',
       fontWeight: '300',
       margin: 0,
       textTransform: 'uppercase',
