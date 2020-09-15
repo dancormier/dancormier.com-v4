@@ -39,6 +39,7 @@ module.exports = {
     'gatsby-plugin-offline',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-theme-ui',
+    'gatsby-transformer-remark',
     'gatsby-plugin-typescript',
     {
       resolve: 'gatsby-plugin-alias-imports',
@@ -87,8 +88,15 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/content/assets`,
+        path: `${__dirname}/static/assets`,
         name: 'assets',
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `content`,
+        path: `${__dirname}/content`,
       },
     },
     {
