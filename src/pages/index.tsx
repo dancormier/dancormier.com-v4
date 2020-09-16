@@ -1,45 +1,35 @@
 /** @jsx jsx */
 import * as React from 'react'
 import { PageProps, useStaticQuery, graphql } from 'gatsby'
+import md from 'snarkdown'
 import Layout from 'components/layout'
-import { jsx, Link, Text } from 'theme-ui'
+import { jsx, Text } from 'theme-ui'
 
 export default function Home(props: PageProps): React.ReactElement {
-  const { site } = useStaticQuery(
+  const { allFile } = useStaticQuery(
     graphql`
       query {
-        # allFile(
-        #   filter: {
-        #     sourceInstanceName: { eq: "content" }
-        #     name: { eq: "home" }
-        #   }
-        # ) {
-        #   edges {
-        #     node {
-        #       childMarkdownRemark {
-        #         frontmatter {
-        #           title
-        #           intro
-        #           image
-        #         }
-        #       }
-        #     }
-        #   }
-        # }
-        site {
-          siteMetadata {
-            author
-            location
-            workplace {
-              name
-              url
+        allFile(
+          filter: {
+            sourceInstanceName: { eq: "content" }
+            name: { eq: "index" }
+          }
+        ) {
+          edges {
+            node {
+              childMarkdownRemark {
+                frontmatter {
+                  body
+                }
+              }
             }
           }
         }
       }
     `,
   )
-  const { location, workplace } = site.siteMetadata
+  const { frontmatter } = allFile.edges[0].node.childMarkdownRemark
+  const { body } = frontmatter
 
   return (
     <Layout {...props} title="Home">
@@ -50,9 +40,7 @@ export default function Home(props: PageProps): React.ReactElement {
           pt: 4,
         }}
       >
-        I live in {location}. I work for
-        {` `}
-        <Link href={workplace.url}>{workplace.name}</Link>. 👋
+        <span dangerouslySetInnerHTML={{ __html: md(body) }} />
       </Text>
     </Layout>
   )

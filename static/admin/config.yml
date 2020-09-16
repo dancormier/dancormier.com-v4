@@ -11,9 +11,6 @@ collections:
     files:
       - label: "Home Page"
         name: "home"
-        file: "content/home.md"
+        file: "content/index.md"
         fields:
-          - {label: Title, name: title, widget: string}
-          - {label: Subtitle, name: subtitle, widget: string}
-          - {label: Intro text, name: intro, widget: text}
-          - {label: Image, name: image, widget: image}
+          - {label: Body, name: body, widget: markdown }
