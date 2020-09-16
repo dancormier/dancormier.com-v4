@@ -33,13 +33,13 @@ export default function Home(props: PageProps): React.ReactElement {
   return (
     <Layout {...props} title="Home">
       <Text
-        as="p"
         sx={{
           fontSize: 2,
           pt: 2,
         }}
-        dangerouslySetInnerHTML={{ __html: html }}
-      />
+      >
+        <div dangerouslySetInnerHTML={{ __html: html }} />
+      </Text>
     </Layout>
   )
 }
