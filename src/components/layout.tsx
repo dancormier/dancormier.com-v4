@@ -40,8 +40,8 @@ function Layout({
           {children}
           <Socials
             sx={{
-              fontSize: [4, null, 5],
-              pt: 4,
+              fontSize: 5,
+              pt: 2,
             }}
           />
         </Box>

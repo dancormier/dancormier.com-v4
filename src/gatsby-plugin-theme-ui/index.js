@@ -32,5 +32,9 @@ export default merge(theme, {
       margin: 0,
       textTransform: 'uppercase',
     },
+    p: {
+      marginBlockEnd: 0,
+      marginBlockStart: 0,
+    },
   },
 })

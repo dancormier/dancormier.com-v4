@@ -13,4 +13,5 @@ collections:
         name: "home"
         file: "content/index.md"
         fields:
+          - {label: "Type", name: "type", widget: "hidden", default: "index"}
           - {label: Body, name: body, widget: markdown }
