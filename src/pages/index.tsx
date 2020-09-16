@@ -38,9 +38,8 @@ export default function Home(props: PageProps): React.ReactElement {
           fontSize: 2,
           pt: 2,
         }}
-      >
-        <span dangerouslySetInnerHTML={{ __html: html }} />
-      </Text>
+        dangerouslySetInnerHTML={{ __html: html }}
+      />
     </Layout>
   )
 }
