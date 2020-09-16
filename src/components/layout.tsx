@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import * as React from 'react'
 import { Global } from '@emotion/core'
-import { jsx, Box, Container } from 'theme-ui'
+import { jsx, Box, Card, Container } from 'theme-ui'
 import Header from 'components/header'
 import Footer from 'components/footer'
 import SEO from 'components/seo'
@@ -20,7 +20,7 @@ function Layout({
   ...props
 }: LayoutProps): React.ReactElement {
   return (
-    <Container
+    <Box
       sx={{
         display: 'flex',
         flexDirection: 'column',
@@ -44,7 +44,6 @@ function Layout({
       <SEO title={title} />
       <Container
         sx={{
-          flexGrow: 1,
           textAlign: ['center', null, 'left'],
         }}
       >
@@ -59,12 +58,14 @@ function Layout({
           />
         </Box>
       </Container>
+      <Box sx={{ flexGrow: 1 }} />
       <Footer
         sx={{
+          justifySelf: 'flex-end',
           textAlign: ['center', null, 'left'],
         }}
       />
-    </Container>
+    </Box>
   )
 }
 
