@@ -20,11 +20,12 @@ function Layout({
   ...props
 }: LayoutProps): React.ReactElement {
   return (
-    <Box
+    <Container
       sx={{
-        pt: '25vh',
-        textAlign: ['center', null, 'left'],
-        ...props.sx,
+        display: 'flex',
+        flexDirection: 'column',
+        minHeight: '100vh',
+        paddingTop: '25vh',
       }}
       {...props}
     >
@@ -43,10 +44,8 @@ function Layout({
       <SEO title={title} />
       <Container
         sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          minHeight: '100vh',
-          maxWidth: 768,
+          flexGrow: 1,
+          textAlign: ['center', null, 'left'],
         }}
       >
         <Header />
@@ -59,9 +58,13 @@ function Layout({
             }}
           />
         </Box>
-        <Footer />
       </Container>
-    </Box>
+      <Footer
+        sx={{
+          textAlign: ['center', null, 'left'],
+        }}
+      />
+    </Container>
   )
 }
 

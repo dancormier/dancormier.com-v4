@@ -9,6 +9,9 @@ export default merge(theme, {
     secondary: '#6f66fb',
     highlight: '#6f66fb',
   },
+  container: {
+    maxWidth: 768,
+  },
   fonts: {
     body: `Inter, ${theme.fonts.body}`,
     sans: `Inter, ${theme.fonts.sans}`,

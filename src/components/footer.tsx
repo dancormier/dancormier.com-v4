@@ -1,9 +1,13 @@
 /** @jsx jsx */
 import * as React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import { jsx, Text } from 'theme-ui'
+import { jsx, Container, Text } from 'theme-ui'
 
-function Footer(): React.ReactElement {
+type FooterProps = {
+  sx?: any
+}
+
+function Footer({ ...props }: FooterProps): React.ReactElement {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -18,7 +22,13 @@ function Footer(): React.ReactElement {
   const { author } = site.siteMetadata
 
   return (
-    <footer>
+    <Container
+      as="footer"
+      sx={{
+        py: 4,
+        ...props.sx,
+      }}
+    >
       <Text
         color="gray"
         sx={{
@@ -27,7 +37,7 @@ function Footer(): React.ReactElement {
       >
         © {new Date().getFullYear()} {author}
       </Text>
-    </footer>
+    </Container>
   )
 }
 
