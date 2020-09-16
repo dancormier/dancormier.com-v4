@@ -27,6 +27,12 @@ module.exports = {
         url: 'mailto:dancormierall@gmail.com',
         name: 'dancormierall@gmail.com',
       },
+      // {
+      //   type: 'resume',
+      //   url:
+      //     'https://docs.google.com/document/d/1XcjhIYcCvxCqTJQaYUWsokPwOX4lrHoD9FEq519urXM/edit?usp=sharing',
+      //   name: 'The resume of Dan Cormier',
+      // },
     ],
     workplace: {
       name: 'TED',

@@ -1,10 +1,12 @@
 /** @jsx jsx */
 import * as React from 'react'
+import { Global } from '@emotion/core'
 import { jsx, Box, Container } from 'theme-ui'
 import Header from 'components/header'
 import Footer from 'components/footer'
 import SEO from 'components/seo'
 import Socials from 'components/socials'
+import 'tippy.js/dist/tippy.css'
 
 type LayoutProps = {
   children?: React.ReactNode
@@ -26,6 +28,18 @@ function Layout({
       }}
       {...props}
     >
+      <Global
+        styles={theme => ({
+          a: {
+            color: theme.colors.primary,
+            fontWeight: 700,
+            transition: '.1s',
+            '&:hover, &:focus': {
+              color: theme.colors.highlight,
+            },
+          },
+        })}
+      />
       <SEO title={title} />
       <Container
         sx={{

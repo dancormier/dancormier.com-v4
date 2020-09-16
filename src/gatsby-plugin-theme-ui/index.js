@@ -5,9 +5,8 @@ export default merge(theme, {
   colors: {
     text: '#111',
     background: '#fff',
-    primary: '#2215d8',
+    primary: '#f0471a',
     secondary: '#6f66fb',
-    muted: '#e8e9f9',
     highlight: '#6f66fb',
   },
   fonts: {
@@ -16,6 +15,7 @@ export default merge(theme, {
   },
   styles: {
     a: {
+      color: 'primary',
       transition: '.1s',
       '&:hover, &:focus': {
         color: 'secondary',
@@ -27,7 +27,7 @@ export default merge(theme, {
       textTransform: 'uppercase',
     },
     h2: {
-      color: 'highlight',
+      color: 'primary',
       fontWeight: '300',
       margin: 0,
       textTransform: 'uppercase',

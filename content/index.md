@@ -1,4 +1,4 @@
 ---
 type: index
 ---
-I live in Florida. I work for [TED](https://ted.com). 👋
+I live in Florida and work for [TED](https://ted.com). 👋
