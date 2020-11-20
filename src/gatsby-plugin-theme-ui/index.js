@@ -1,7 +1,7 @@
 import { base as theme } from '@theme-ui/presets'
 import { merge } from 'theme-ui'
 
-const customTheme = merge(theme, {
+export default merge(theme, {
   colors: {
     background: '#20253c',
     text: '#faeae0',
@@ -46,5 +46,3 @@ const customTheme = merge(theme, {
     },
   },
 })
-
-export default customTheme
