@@ -30,7 +30,8 @@ function Layout({
       sx={{
         display: 'flex',
         flexDirection: 'column',
-        minHeight: '100vh',
+        height: '100vh',
+        maxHeight: '-webkit-fill-available',
         paddingTop: ['10vh', null, '25vh'],
       }}
       {...props}
@@ -44,6 +45,9 @@ function Layout({
             '&:hover, &:focus': {
               color: theme.colors.highlight,
             },
+          },
+          body: {
+            height: '98vh',
           },
           p: {
             marginBlockEnd: theme.space[3],
