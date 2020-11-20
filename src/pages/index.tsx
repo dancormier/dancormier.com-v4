@@ -1,8 +1,6 @@
-/** @jsx jsx */
 import * as React from 'react'
 import { PageProps, useStaticQuery, graphql } from 'gatsby'
 import Layout from 'components/layout'
-import { jsx, Text } from 'theme-ui'
 
 export default function Home(props: PageProps): React.ReactElement {
   const { allFile } = useStaticQuery(
@@ -32,14 +30,7 @@ export default function Home(props: PageProps): React.ReactElement {
 
   return (
     <Layout {...props} title="Home">
-      <Text
-        sx={{
-          fontSize: 2,
-          pt: 2,
-        }}
-      >
-        <div dangerouslySetInnerHTML={{ __html: html }} />
-      </Text>
+      <div dangerouslySetInnerHTML={{ __html: html }} />
     </Layout>
   )
 }

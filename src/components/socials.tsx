@@ -1,7 +1,6 @@
-/** @jsx jsx */
 import * as React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import { jsx, Box, Link } from 'theme-ui'
+import { Box, Link } from 'theme-ui'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPaperPlane, faFileAlt } from '@fortawesome/free-solid-svg-icons'
 import {
@@ -58,7 +57,13 @@ function Socials({ ...props }: SocialsProps): React.ReactElement {
   return (
     <Box {...props}>
       {social.map((s: SocialProps) => (
-        <Tippy key={s.type} content={s.type} maxWidth="200" theme="light">
+        <Tippy
+          key={s.type}
+          content={s.type}
+          maxWidth="200"
+          theme="custom"
+          touch={false}
+        >
           <Link
             aria-label={
               s.type !== 'email'

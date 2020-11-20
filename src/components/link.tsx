@@ -1,6 +1,4 @@
-/** @jsx jsx */
 import * as React from 'react'
-import { jsx } from 'theme-ui'
 import { Link as GatsbyLink } from 'gatsby'
 
 type LinkProps = {
@@ -14,9 +12,9 @@ function Link({ ...props }: LinkProps): React.ReactElement {
       {...props}
       to={props.to}
       sx={{
-        color: 'primary',
+        color: 'link',
         '&:hover, &:focus': {
-          color: 'secondary',
+          color: 'highlight',
         },
       }}
     />

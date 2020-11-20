@@ -1,6 +1,5 @@
 module.exports = {
   siteMetadata: {
-    // edit below
     title: 'Front-end developer',
     author: 'Dan Cormier',
     description: 'Front-end developer working for TED from Florida.',
@@ -8,13 +7,13 @@ module.exports = {
     siteUrl: 'https://dancormier.com/',
     social: [
       {
-        type: 'github',
-        url: 'https://github.com/dancormier',
+        type: 'twitter',
+        url: 'https://twitter.com/dancormier',
         name: 'dancormier',
       },
       {
-        type: 'twitter',
-        url: 'https://twitter.com/dancormier',
+        type: 'github',
+        url: 'https://github.com/dancormier',
         name: 'dancormier',
       },
       {
@@ -23,16 +22,16 @@ module.exports = {
         name: 'dancormier',
       },
       {
+        type: 'resume',
+        url:
+          'https://docs.google.com/document/d/1XcjhIYcCvxCqTJQaYUWsokPwOX4lrHoD9FEq519urXM/edit?usp=sharing',
+        name: "Dan Cormier's resume",
+      },
+      {
         type: 'email',
         url: 'mailto:dancormierall@gmail.com',
         name: 'dancormierall@gmail.com',
       },
-      // {
-      //   type: 'resume',
-      //   url:
-      //     'https://docs.google.com/document/d/1XcjhIYcCvxCqTJQaYUWsokPwOX4lrHoD9FEq519urXM/edit?usp=sharing',
-      //   name: 'The resume of Dan Cormier',
-      // },
     ],
     workplace: {
       name: 'TED',
@@ -45,8 +44,10 @@ module.exports = {
     'gatsby-plugin-offline',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-theme-ui',
-    'gatsby-transformer-remark',
+    'gatsby-plugin-sharp',
     'gatsby-plugin-typescript',
+    'gatsby-transformer-sharp',
+    'gatsby-transformer-remark',
     {
       resolve: 'gatsby-plugin-alias-imports',
       options: {
@@ -87,7 +88,7 @@ module.exports = {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
-          families: [`Inter\:100,300,400,400i,700,900`],
+          families: ['Inter:400,400i,700', 'Fredoka One'],
         },
       },
     },
