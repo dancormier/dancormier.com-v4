@@ -14,9 +14,9 @@ function Link({ ...props }: LinkProps): React.ReactElement {
       {...props}
       to={props.to}
       sx={{
-        color: 'primary',
+        color: 'link',
         '&:hover, &:focus': {
-          color: 'secondary',
+          color: 'highlight',
         },
       }}
     />

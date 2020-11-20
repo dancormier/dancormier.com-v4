@@ -58,7 +58,7 @@ function Socials({ ...props }: SocialsProps): React.ReactElement {
   return (
     <Box {...props}>
       {social.map((s: SocialProps) => (
-        <Tippy key={s.type} content={s.type} maxWidth="200" theme="light">
+        <Tippy key={s.type} content={s.type} maxWidth="200" theme="custom">
           <Link
             aria-label={
               s.type !== 'email'

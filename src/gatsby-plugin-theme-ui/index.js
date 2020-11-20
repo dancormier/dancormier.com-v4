@@ -3,35 +3,40 @@ import { merge } from 'theme-ui'
 
 export default merge(theme, {
   colors: {
-    text: '#111',
-    background: '#fff',
-    primary: '#f0471a',
-    secondary: '#6f66fb',
-    highlight: '#6f66fb',
+    background: '#20253c',
+    text: '#faeae0',
+    primary: '#f36c9c',
+    secondary: '#10c785',
+    link: '#10c785',
+    highlight: '#f36c9c',
   },
   container: {
-    maxWidth: 768,
+    maxWidth: 900,
   },
   fonts: {
     body: `Inter, ${theme.fonts.body}`,
-    sans: `Inter, ${theme.fonts.sans}`,
+    heading: `Fredoka One, ${theme.fonts.body}`,
   },
   styles: {
     a: {
-      color: 'primary',
+      color: 'link',
       transition: '.1s',
       '&:hover, &:focus': {
-        color: 'secondary',
+        color: 'highlight',
       },
     },
+    body: {
+      color: 'text',
+    },
     h1: {
-      fontWeight: '900',
+      color: 'primary',
+      fontFamily: 'heading',
       margin: 0,
       textTransform: 'uppercase',
     },
     h2: {
-      color: 'primary',
-      fontWeight: '300',
+      color: 'secondary',
+      fontFamily: 'heading',
       margin: 0,
       textTransform: 'uppercase',
     },

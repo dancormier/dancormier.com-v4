@@ -25,14 +25,14 @@ function Footer({ ...props }: FooterProps): React.ReactElement {
     <Container
       as="footer"
       sx={{
-        py: 4,
+        py: 3,
         ...props.sx,
       }}
     >
       <Text
-        color="gray"
         sx={{
-          textAlign: ['center', null, 'left'],
+          fontSize: 1,
+          textAlign: 'center',
         }}
       >
         © {new Date().getFullYear()} {author}
