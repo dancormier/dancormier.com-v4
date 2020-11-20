@@ -1,8 +1,7 @@
-/** @jsx jsx */
 import * as React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import { useMediaQuery } from 'react-responsive'
-import { jsx, Container, Styled, Text } from 'theme-ui'
+import { Container, Heading, Text } from 'theme-ui'
 import AvatarDC from './avatar'
 import Emoji from './emoji'
 
@@ -47,26 +46,29 @@ function Header({ children, ...props }: HeaderProps): React.ReactElement {
           onMouseEnter={() => setAnimateEmoji(true)}
           onMouseLeave={() => setAnimateEmoji(false)}
         >
-          <Styled.h1
+          <Heading
             as="h1"
-            sx={{
+            sx={theme => ({
+              ...theme?.styles?.h1,
               display: 'flex',
               flexDirection: ['column-reverse', null, 'row'],
               fontSize: [5, 6, 7],
               justifyContent: ['center', null, 'flex-start'],
-            }}
+            })}
           >
             <Text>{author}</Text>
             {mqLg && <Emoji animate={animateEmoji} />}
-          </Styled.h1>
-          <Styled.h2
-            sx={{
+          </Heading>
+          <Heading
+            as="h2"
+            sx={theme => ({
+              ...theme?.styles?.h2,
               fontSize: [3, null, 5],
               marginTop: 1,
-            }}
+            })}
           >
             {title}
-          </Styled.h2>
+          </Heading>
         </Container>
         {children}
       </Container>

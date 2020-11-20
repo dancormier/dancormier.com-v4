@@ -1,8 +1,7 @@
-/** @jsx jsx */
 import * as React from 'react'
 import { Global } from '@emotion/core'
 import { useMediaQuery } from 'react-responsive'
-import { jsx, Box, Container } from 'theme-ui'
+import { Box, Container } from 'theme-ui'
 import Emoji from 'components/emoji'
 import Header from 'components/header'
 import Footer from 'components/footer'

@@ -1,7 +1,6 @@
-/** @jsx jsx */
 import * as React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import { jsx, Container, AspectRatio } from 'theme-ui'
+import { Container, AspectRatio } from 'theme-ui'
 
 function AvatarDC(): React.ReactElement {
   const { file, site } = useStaticQuery(
@@ -30,7 +29,7 @@ function AvatarDC(): React.ReactElement {
       sx={theme => ({
         borderRadius: 400,
         boxShadow: [
-          `0 0 2rem 0 ${theme.colors.primary}`,
+          `0 0 2rem 0 ${theme?.colors?.primary}`,
           null,
           `0 0 2rem black`,
         ],
@@ -44,7 +43,7 @@ function AvatarDC(): React.ReactElement {
         transform: 'scale(-1, 1)',
         transition: '.2s',
         '&:hover': {
-          boxShadow: `0 0 2rem 0 ${theme.colors.primary}`,
+          boxShadow: `0 0 2rem 0 ${theme?.colors?.primary}`,
           filter: 'grayscale(0) opacity(100%) sepia(0) hue-rotate(0deg)',
           opacity: 1,
           transform: 'scale(-1.1, 1.1)',

@@ -1,8 +1,6 @@
-/** @jsx jsx */
 import * as React from 'react'
 import { PageProps, useStaticQuery, graphql } from 'gatsby'
 import Layout from 'components/layout'
-import { jsx } from 'theme-ui'
 
 export default function Home(props: PageProps): React.ReactElement {
   const { allFile } = useStaticQuery(

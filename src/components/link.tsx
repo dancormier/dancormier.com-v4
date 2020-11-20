@@ -1,6 +1,4 @@
-/** @jsx jsx */
 import * as React from 'react'
-import { jsx } from 'theme-ui'
 import { Link as GatsbyLink } from 'gatsby'
 
 type LinkProps = {

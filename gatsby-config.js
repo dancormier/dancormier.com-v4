@@ -1,6 +1,5 @@
 module.exports = {
   siteMetadata: {
-    // edit below
     title: 'Front-end developer',
     author: 'Dan Cormier',
     description: 'Front-end developer working for TED from Florida.',

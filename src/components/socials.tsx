@@ -1,7 +1,6 @@
-/** @jsx jsx */
 import * as React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import { jsx, Box, Link } from 'theme-ui'
+import { Box, Link } from 'theme-ui'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPaperPlane, faFileAlt } from '@fortawesome/free-solid-svg-icons'
 import {

@@ -1,7 +1,6 @@
-/** @jsx jsx */
 import * as React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import { jsx, Container, Text } from 'theme-ui'
+import { Container, Text } from 'theme-ui'
 
 type FooterProps = {
   sx?: any

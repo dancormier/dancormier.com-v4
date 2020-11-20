@@ -1,8 +1,7 @@
-/** @jsx jsx */
 import * as React from 'react'
 import { PageProps } from 'gatsby'
 import Layout from 'components/layout'
-import { jsx, Text } from 'theme-ui'
+import { Text } from 'theme-ui'
 import Link from 'components/link'
 
 export default function Home(props: PageProps): React.ReactElement {
