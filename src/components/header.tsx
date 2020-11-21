@@ -38,6 +38,7 @@ function Header({ children, ...props }: HeaderProps): React.ReactElement {
     >
       <Container
         sx={{
+          marginX: '2',
           width: 'auto',
         }}
       >
@@ -52,7 +53,7 @@ function Header({ children, ...props }: HeaderProps): React.ReactElement {
               ...theme?.styles?.h1,
               display: 'flex',
               flexDirection: ['column-reverse', null, 'row'],
-              fontSize: [5, 6, 7],
+              fontSize: [6, null, 7],
               justifyContent: ['center', null, 'flex-start'],
             })}
           >
@@ -63,8 +64,7 @@ function Header({ children, ...props }: HeaderProps): React.ReactElement {
             as="h2"
             sx={theme => ({
               ...theme?.styles?.h2,
-              fontSize: [3, null, 5],
-              marginTop: 1,
+              fontSize: [4, null, 5],
             })}
           >
             {title}
@@ -75,7 +75,7 @@ function Header({ children, ...props }: HeaderProps): React.ReactElement {
       <Container
         sx={{
           marginBottom: [4, null, 0],
-          width: '30%',
+          width: ['40%', null, '30%'],
         }}
       >
         <AvatarDC />
