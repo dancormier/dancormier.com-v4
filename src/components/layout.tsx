@@ -23,14 +23,14 @@ const customTippyTheme = 'custom'
 const tippyBoxClass = `.tippy-box[data-theme~='${customTippyTheme}']`
 
 const bgAni = keyframes({
-  '0%': { transform: 'translateY(0%)' },
-  '100%': { transform: 'translateY(50%)' },
+  '0%': { backgroundPosition: '0% 0%' },
+  '100%': { backgroundPosition: '0% 100%' },
 })
 
 function EmojiBG(): React.ReactElement {
   const [emojiIndex] = useEmojiIndex()
-  const emojiSize = 60
-  console.log(useEmojiIndex())
+  const emojiSize = 50
+
   return (
     <Box
       sx={{
@@ -38,9 +38,16 @@ function EmojiBG(): React.ReactElement {
         content: '""',
         display: 'block',
         position: 'absolute',
-        height: '200%',
+        height: '100%',
         width: '100%',
-        background: `url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 ${
+        backgroundSize: emojiSize,
+        filter: 'grayscale(1)',
+        opacity: 0.04,
+        zIndex: -1,
+        top: 0,
+      }}
+      style={{
+        backgroundImage: `url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 ${
           emojiSize * 0.78
         } ${
           emojiSize * 0.82
@@ -49,11 +56,6 @@ function EmojiBG(): React.ReactElement {
         }px; text-shadow: 1px 1px white, -1px -1px black'>${
           emojiList[emojiIndex]
         }</div></foreignObject></svg>")`,
-        backgroundSize: emojiSize,
-        filter: 'grayscale(1)',
-        opacity: 0.04,
-        zIndex: -1,
-        top: '-100%',
       }}
     />
   )
