@@ -52,7 +52,7 @@ export const emojiList = [
 
 const rotateAni = keyframes({
   '0%': { transform: 'rotate(-10deg)' },
-  '50%': { transform: 'rotate(15deg)', transition: 'transform 0.3s ease-out' },
+  '50%': { transform: 'rotate(15deg)' },
   '100%': { transform: 'rotate(-10deg)' },
 })
 
@@ -68,7 +68,6 @@ function Emoji({
   ...props
 }: EmojiProps): React.ReactElement {
   const [emojiIndex, setEmojiIndex] = useEmojiIndex()
-  const intervalId = React.useRef()
 
   React.useEffect(() => {
     if (animate) {
@@ -84,7 +83,7 @@ function Emoji({
   return (
     <Text
       sx={{
-        animation: `${rotateAni} 3s infinite linear`,
+        animation: `${rotateAni} 3s infinite cubic-bezier(0.25, 0.1, 0.25, 1)`,
         cursor: 'crosshair',
         marginLeft: [0, null, 2],
         marginBottom: [2, null, 0],

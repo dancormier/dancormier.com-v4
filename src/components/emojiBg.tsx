@@ -16,14 +16,14 @@ function EmojiBG(): React.ReactElement {
   return (
     <Box
       sx={{
-        animation: `${bgAni} 60s infinite linear`,
+        animation: `${bgAni} 80s infinite linear`,
         content: '""',
         display: 'block',
         position: 'fixed',
         height: '100%',
         width: '100%',
         backgroundSize: emojiSize,
-        filter: 'grayscale(1)',
+        filter: 'grayscale(0.5)',
         opacity: 0.04,
         zIndex: -1,
         top: 0,
@@ -32,10 +32,10 @@ function EmojiBG(): React.ReactElement {
         backgroundImage: `url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 ${
           emojiSize * 0.78
         } ${
-          emojiSize * 0.82
+          emojiSize * 0.83
         }'><foreignObject width='${emojiSize}px' height='${emojiSize}px'><div xmlns='http://www.w3.org/1999/xhtml' style='font-size:${
           emojiSize * 0.73
-        }px; text-shadow: 1px 1px white, -1px -1px black'>${
+        }px; text-shadow: 0 0 white; color: rgba(0,0,0,.4)'>${
           emojiList[emojiIndex]
         }</div></foreignObject></svg>")`,
       }}
