@@ -36,16 +36,14 @@ function AvatarDC(): React.ReactElement {
         filter: [
           null,
           null,
-          'grayscale(1) opacity(70%) sepia(1) hue-rotate(-135deg)',
+          'grayscale(1) brightness(60%) sepia(1) hue-rotate(-135deg)',
         ],
-        opacity: [null, null, 0.7],
         overflow: 'hidden',
         transform: 'scale(-1, 1)',
         transition: '.2s',
         '&:hover': {
           boxShadow: `0 0 2rem 0 ${theme?.colors?.primary}`,
-          filter: 'grayscale(0) opacity(100%) sepia(0) hue-rotate(0deg)',
-          opacity: 1,
+          filter: 'grayscale(0) brightness(100%) sepia(0) hue-rotate(0deg)',
           transform: 'scale(-1.1, 1.1)',
         },
       })}

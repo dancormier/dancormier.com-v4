@@ -2,6 +2,23 @@ import * as React from 'react'
 import { keyframes } from '@emotion/core'
 import { Text } from 'theme-ui'
 
+const EmojiIndexContext = React.createContext(0)
+
+function useEmojiIndex(): number {
+  const context = React.useContext(EmojiIndexContext)
+  if (!context) {
+    throw new Error(`useEmojiIndex must be used within a EmojiIndexProvider`)
+  }
+  return context
+}
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+function EmojiIndexProvider(props: any): React.ReactElement {
+  const [emojiIndex, setEmojiIndex] = React.useState(0)
+  const value = React.useMemo(() => [emojiIndex, setEmojiIndex], [emojiIndex])
+  return <EmojiIndexContext.Provider value={value} {...props} />
+}
+export { EmojiIndexProvider, useEmojiIndex }
+
 export const emojiList = [
   '👋',
   '✌️',
@@ -50,7 +67,7 @@ function Emoji({
   speed = 400,
   ...props
 }: EmojiProps): React.ReactElement {
-  const [emojiIndex, setEmojiIndex] = React.useState(0)
+  const [emojiIndex, setEmojiIndex] = useEmojiIndex()
   const intervalId = React.useRef()
 
   const rotateEmoji = React.useCallback(() => {
