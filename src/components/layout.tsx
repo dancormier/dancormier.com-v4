@@ -1,12 +1,9 @@
 import * as React from 'react'
-import { Global, keyframes } from '@emotion/core'
+import { Global } from '@emotion/core'
 import { useMediaQuery } from 'react-responsive'
 import { Box, Container } from 'theme-ui'
-import Emoji, {
-  emojiList,
-  EmojiIndexProvider,
-  useEmojiIndex,
-} from 'components/emoji'
+import Emoji, { EmojiIndexProvider } from 'components/emoji'
+import EmojiBG from 'components/emojiBg'
 import Header from 'components/header'
 import Footer from 'components/footer'
 import SEO from 'components/seo'
@@ -21,45 +18,6 @@ type LayoutProps = {
 
 const customTippyTheme = 'custom'
 const tippyBoxClass = `.tippy-box[data-theme~='${customTippyTheme}']`
-
-const bgAni = keyframes({
-  '0%': { backgroundPosition: '0% 0%' },
-  '100%': { backgroundPosition: '0% 100%' },
-})
-
-function EmojiBG(): React.ReactElement {
-  const [emojiIndex] = useEmojiIndex()
-  const emojiSize = 50
-
-  return (
-    <Box
-      sx={{
-        animation: `${bgAni} 60s infinite linear`,
-        content: '""',
-        display: 'block',
-        position: 'absolute',
-        height: '100%',
-        width: '100%',
-        backgroundSize: emojiSize,
-        filter: 'grayscale(1)',
-        opacity: 0.04,
-        zIndex: -1,
-        top: 0,
-      }}
-      style={{
-        backgroundImage: `url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 ${
-          emojiSize * 0.78
-        } ${
-          emojiSize * 0.82
-        }'><foreignObject width='${emojiSize}px' height='${emojiSize}px'><div xmlns='http://www.w3.org/1999/xhtml' style='font-size:${
-          emojiSize * 0.73
-        }px; text-shadow: 1px 1px white, -1px -1px black'>${
-          emojiList[emojiIndex]
-        }</div></foreignObject></svg>")`,
-      }}
-    />
-  )
-}
 
 function Layout({
   children,
@@ -76,8 +34,8 @@ function Layout({
           flexDirection: 'column',
           height: '100vh',
           maxHeight: '-webkit-fill-available',
-          overflow: 'hidden',
-          paddingTop: ['10vh', null, '25vh'],
+          minHeight: '-webkit-fill-available',
+          overflow: 'scroll',
         }}
         {...props}
       >
@@ -93,7 +51,9 @@ function Layout({
               },
             },
             body: {
-              height: '98vh',
+              maxHeight: '-webkit-fill-available',
+              height: '100vh',
+              minHeight: '-webkit-fill-available',
             },
             p: {
               marginBlockEnd: theme.space[3],
@@ -114,6 +74,7 @@ function Layout({
         <SEO title={title} />
         <Container
           sx={{
+            paddingTop: ['10vh', null, '25vh'],
             textAlign: ['center', null, 'left'],
           }}
         >

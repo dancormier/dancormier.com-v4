@@ -70,19 +70,15 @@ function Emoji({
   const [emojiIndex, setEmojiIndex] = useEmojiIndex()
   const intervalId = React.useRef()
 
-  const rotateEmoji = React.useCallback(() => {
-    intervalId.current = window.setInterval(() => {
-      setEmojiIndex(prev => (prev === emojiList.length - 1 ? 0 : prev + 1))
-    }, speed)
-    return () => window.clearInterval(intervalId.current)
-  }, [])
-
   React.useEffect(() => {
-    if (!animate) {
-      window.clearInterval(intervalId.current)
-      return
+    if (animate) {
+      const interval = setInterval(() => {
+        setEmojiIndex((prev: number) =>
+          prev === emojiList.length - 1 ? 0 : prev + 1,
+        )
+      }, speed)
+      return () => clearInterval(interval)
     }
-    rotateEmoji()
   }, [animate])
 
   return (
