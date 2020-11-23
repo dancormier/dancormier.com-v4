@@ -10,21 +10,23 @@ const bgAni = keyframes({
 
 function EmojiBG(): React.ReactElement {
   const [emojiIndex] = useEmojiIndex()
-  const emojiSize = 50
+  const emojiSize = 75
+  const emojiStyle = `font-size:${
+    emojiSize * 0.73
+  }px; text-shadow: 1px 1px white`
 
-  console.log()
   return (
     <Box
       sx={{
         animation: `${bgAni} 80s infinite linear`,
         content: '""',
-        display: 'block',
+        display: ['none', null, 'block'],
         position: 'fixed',
         height: '100%',
         width: '100%',
         backgroundSize: emojiSize,
         filter: 'grayscale(0.5)',
-        opacity: 0.04,
+        opacity: 0.03,
         zIndex: -1,
         top: 0,
       }}
@@ -33,9 +35,7 @@ function EmojiBG(): React.ReactElement {
           emojiSize * 0.78
         } ${
           emojiSize * 0.83
-        }'><foreignObject width='${emojiSize}px' height='${emojiSize}px'><div xmlns='http://www.w3.org/1999/xhtml' style='font-size:${
-          emojiSize * 0.73
-        }px; text-shadow: 0 0 white; color: rgba(0,0,0,.4)'>${
+        }'><foreignObject width='${emojiSize}px' height='${emojiSize}px'><div xmlns='http://www.w3.org/1999/xhtml' style='${emojiStyle}'>${
           emojiList[emojiIndex]
         }</div></foreignObject></svg>")`,
       }}
