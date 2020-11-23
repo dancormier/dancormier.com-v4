@@ -6,7 +6,7 @@ type FooterProps = {
   sx?: any
 }
 
-function Footer({ ...props }: FooterProps): React.ReactElement {
+function Footer(props: FooterProps): React.ReactElement {
   const { site } = useStaticQuery(
     graphql`
       query {
