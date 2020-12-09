@@ -36,9 +36,12 @@ const Icon = (type: string) => {
 }
 
 function Socials({ ...props }: SocialsProps): React.ReactElement {
-  const { site } = useStaticQuery(
+  const { file, site } = useStaticQuery(
     graphql`
       query {
+        file(name: { eq: "dan_cormier_resume_20201123" }) {
+          publicURL
+        }
         site {
           siteMetadata {
             author
@@ -52,34 +55,38 @@ function Socials({ ...props }: SocialsProps): React.ReactElement {
       }
     `,
   )
+
   const { author, social } = site.siteMetadata
+  const { publicURL: resumePath } = file
 
   return (
     <Box {...props}>
-      {social.map((s: SocialProps) => (
-        <Tippy
-          key={s.type}
-          content={s.type}
-          maxWidth="200"
-          theme="custom"
-          touch={false}
-        >
-          <Link
-            aria-label={
-              s.type !== 'email'
-                ? `visit ${author}'s ${s.type}`
-                : `email ${author}`
-            }
-            href={s.url}
-            sx={{
-              ml: [3, null, 0],
-              mr: [3, null, 4],
-            }}
+      {social.map((s: SocialProps) => {
+        const url = s.type === 'resume' ? resumePath : s.url
+        const linkLabel =
+          s.type !== 'email' ? `visit ${author}'s ${s.type}` : `email ${author}`
+
+        return (
+          <Tippy
+            key={s.type}
+            content={s.type}
+            maxWidth="200"
+            theme="custom"
+            touch={false}
           >
-            {Icon(s.type)}
-          </Link>
-        </Tippy>
-      ))}
+            <Link
+              aria-label={linkLabel}
+              href={url}
+              sx={{
+                ml: [3, null, 0],
+                mr: [3, null, 4],
+              }}
+            >
+              {Icon(s.type)}
+            </Link>
+          </Tippy>
+        )
+      })}
     </Box>
   )
 }
