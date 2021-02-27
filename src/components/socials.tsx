@@ -39,7 +39,7 @@ function Socials({ ...props }: SocialsProps): React.ReactElement {
   const { file, site } = useStaticQuery(
     graphql`
       query {
-        file(name: { eq: "dan_cormier_resume_22010208" }) {
+        file(name: { eq: "dan_cormier_resume_20210226" }) {
           publicURL
         }
         site {
