@@ -1,14 +1,49 @@
 import * as React from 'react'
 import { Global } from '@emotion/core'
 import { useMediaQuery } from 'react-responsive'
+import { useQuery } from 'react-query'
+import { request, gql } from 'graphql-request'
 import { Box, Container } from 'theme-ui'
+
 import Emoji, { EmojiIndexProvider } from 'components/emoji'
 import EmojiBG from 'components/emojiBg'
 import Header from 'components/header'
 import Footer from 'components/footer'
 import SEO from 'components/seo'
 import Socials from 'components/socials'
+
 import 'tippy.js/dist/tippy.css'
+
+const endpoint = 'https://graphql.dancormier.com'
+
+function useData() {
+  return useQuery(['emojis', 'user'], async () => {
+    const { emojis, user } = await request(
+      endpoint,
+      gql`
+        query {
+          emojis
+          user(id: 23) {
+            id
+            name
+            title
+            location
+            links {
+              name
+              url
+            }
+            jobs {
+              name
+              url
+              end
+            }
+          }
+        }
+      `,
+    )
+    return { emojis, user }
+  })
+}
 
 type LayoutProps = {
   children?: React.ReactNode
@@ -25,7 +60,9 @@ function Layout({
   ...props
 }: LayoutProps): React.ReactElement {
   const mqLg = useMediaQuery({ minWidth: 832 }) // TODO: use theme breakpoint here
+  const { status, data, isFetching } = useData()
 
+  console.log(data?.emojis)
   return (
     <EmojiIndexProvider>
       <Box
@@ -39,7 +76,7 @@ function Layout({
         }}
         {...props}
       >
-        <EmojiBG />
+        <EmojiBG emojis={data?.emojis} />
         <Global
           styles={theme => ({
             a: {
@@ -78,7 +115,11 @@ function Layout({
             textAlign: ['center', null, 'left'],
           }}
         >
-          <Header>
+          <Header
+            emojis={data?.emojis}
+            name={data?.user?.name}
+            title={data?.user?.title}
+          >
             <Box sx={{ flexGrow: 1 }}>
               {children}
               <Socials
@@ -99,7 +140,7 @@ function Layout({
               textAlign: 'center',
             }}
           >
-            <Emoji animate={true} speed={800} />
+            <Emoji emojis={data?.emojis} animate={true} speed={800} />
           </Container>
         )}
         <Footer
