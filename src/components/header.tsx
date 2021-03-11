@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
 import { useMediaQuery } from 'react-responsive'
 import { Container, Heading, Text } from 'theme-ui'
 import AvatarDC from './avatar'
@@ -7,23 +6,18 @@ import Emoji from './emoji'
 
 type HeaderProps = {
   children?: React.ReactNode
+  emojis?: Array<string>
+  name?: string
+  title?: string
 }
 
-function Header({ children, ...props }: HeaderProps): React.ReactElement {
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            author
-            title
-          }
-        }
-      }
-    `,
-  )
-  const { author, title } = site.siteMetadata
-
+function Header({
+  children,
+  emojis,
+  name,
+  title,
+  ...props
+}: HeaderProps): React.ReactElement {
   const [animateEmoji, setAnimateEmoji] = React.useState(false)
   const mqLg = useMediaQuery({ minWidth: 832 }) // TODO: use theme breakpoint here
 
@@ -57,8 +51,8 @@ function Header({ children, ...props }: HeaderProps): React.ReactElement {
               justifyContent: ['center', null, 'flex-start'],
             })}
           >
-            <Text>{author}</Text>
-            {mqLg && <Emoji animate={animateEmoji} />}
+            <Text>{name}</Text>
+            {mqLg && <Emoji animate={animateEmoji} emojis={emojis} />}
           </Heading>
           <Heading
             as="h2"

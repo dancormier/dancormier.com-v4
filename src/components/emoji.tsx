@@ -19,38 +19,6 @@ function EmojiIndexProvider(props: any): React.ReactElement {
 }
 export { EmojiIndexProvider, useEmojiIndex }
 
-export const emojiList = [
-  '👋',
-  '✌️',
-  '🤟',
-  '🤗',
-  '🙂',
-  '😎',
-  '👨‍💻',
-  '👨‍🌾',
-  '👨‍🎨',
-  '⚛️',
-  '🥁',
-  '💛',
-  '🌹',
-  '✊🏾',
-  '🌈',
-  '💯',
-  '🚀',
-  '⚡️',
-  '🍳',
-  '🍨',
-  '🐶',
-  '🐝',
-  '🐞',
-  '🐛',
-  '🌻',
-  '🌱',
-  '🏔',
-  '🏗',
-  '📡',
-]
-
 const rotateAni = keyframes({
   '0%': { transform: 'rotate(-10deg)' },
   '50%': { transform: 'rotate(15deg)' },
@@ -59,6 +27,7 @@ const rotateAni = keyframes({
 
 type EmojiProps = {
   animate?: boolean
+  emojis?: Array<string>
   sx?: any
   speed?: number
 }
@@ -66,20 +35,25 @@ type EmojiProps = {
 function Emoji({
   animate = false,
   speed = 400,
+  emojis,
   ...props
 }: EmojiProps): React.ReactElement {
   const [emojiIndex, setEmojiIndex] = useEmojiIndex()
 
+
   React.useEffect(() => {
-    if (animate) {
+    if (animate && emojis) {
       const interval = setInterval(() => {
         setEmojiIndex((prev: number) =>
-          prev === emojiList.length - 1 ? 0 : prev + 1,
+          prev === emojis.length - 1 ? 0 : prev + 1,
         )
       }, speed)
       return () => clearInterval(interval)
     }
-  }, [animate])
+  }, [animate, emojis])
+
+  console.log(emojis)
+  if (!emojis) return null
 
   return (
     <Text
@@ -92,7 +66,7 @@ function Emoji({
       }}
       {...props}
     >
-      {emojiList[emojiIndex]}
+      {emojis[emojiIndex]}
     </Text>
   )
 }
