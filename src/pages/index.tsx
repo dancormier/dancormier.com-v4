@@ -3,9 +3,12 @@ import { PageProps, useStaticQuery, graphql } from 'gatsby'
 import Layout from 'components/layout'
 
 export default function Home(props: PageProps): React.ReactElement {
-  const { allFile } = useStaticQuery(
+  const { allFile, graphqldc } = useStaticQuery(
     graphql`
       query {
+        graphqldc {
+          emojis
+        }
         allFile(
           filter: {
             sourceInstanceName: { eq: "content" }
@@ -28,6 +31,7 @@ export default function Home(props: PageProps): React.ReactElement {
   )
   const { html } = allFile.edges[0].node.childMarkdownRemark
 
+  console.log({ graphqldc })
   return (
     <Layout {...props} title="Home">
       <div dangerouslySetInnerHTML={{ __html: html }} />

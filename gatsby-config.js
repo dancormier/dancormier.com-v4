@@ -112,5 +112,13 @@ module.exports = {
         basePath: '/design-system',
       },
     },
+    {
+      resolve: 'gatsby-source-graphql',
+      options: {
+        typeName: 'GRAPHQLDC',
+        fieldName: 'graphqldc',
+        url: 'https://graphql.dancormier.com',
+      },
+    },
   ],
 }
