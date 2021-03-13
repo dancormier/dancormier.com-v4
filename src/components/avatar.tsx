@@ -3,9 +3,14 @@ import { useStaticQuery, graphql } from 'gatsby'
 import { Container, AspectRatio } from 'theme-ui'
 
 function AvatarDC(): React.ReactElement {
-  const { file, site } = useStaticQuery(
+  const { graphqldc, file } = useStaticQuery(
     graphql`
       query {
+        graphqldc {
+          user(id: 23) {
+            name
+          }
+        }
         file(name: { eq: "avatar" }) {
           childImageSharp {
             fixed {
@@ -13,15 +18,10 @@ function AvatarDC(): React.ReactElement {
             }
           }
         }
-        site {
-          siteMetadata {
-            author
-          }
-        }
       }
     `,
   )
-  const { author } = site.siteMetadata
+  const { user } = graphqldc
   const { src: avatar } = file.childImageSharp.fixed
 
   return (
@@ -55,7 +55,7 @@ function AvatarDC(): React.ReactElement {
           backgroundSize: 'cover',
         }}
         role="img"
-        aria-label={`image of ${author}`}
+        aria-label={`image of ${user?.name}`}
       />
     </Container>
   )

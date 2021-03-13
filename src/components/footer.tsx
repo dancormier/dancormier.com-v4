@@ -7,18 +7,18 @@ type FooterProps = {
 }
 
 function Footer(props: FooterProps): React.ReactElement {
-  const { site } = useStaticQuery(
+  const { graphqldc } = useStaticQuery(
     graphql`
       query {
-        site {
-          siteMetadata {
-            author
+        graphqldc {
+          user(id: 23) {
+            name
           }
         }
       }
     `,
   )
-  const { author } = site.siteMetadata
+  const { user } = graphqldc
 
   return (
     <Container
@@ -34,7 +34,7 @@ function Footer(props: FooterProps): React.ReactElement {
           textAlign: 'center',
         }}
       >
-        © {new Date().getFullYear()} {author}
+        © {new Date().getFullYear()} {user?.name}
       </Text>
     </Container>
   )

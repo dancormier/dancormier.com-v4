@@ -10,19 +10,20 @@ type HeaderProps = {
 }
 
 function Header({ children, ...props }: HeaderProps): React.ReactElement {
-  const { site } = useStaticQuery(
+  const { graphqldc } = useStaticQuery(
     graphql`
       query {
-        site {
-          siteMetadata {
-            author
+        graphqldc {
+          user(id: 23) {
+            name
             title
           }
         }
       }
     `,
   )
-  const { author, title } = site.siteMetadata
+
+  const { user } = graphqldc
 
   const [animateEmoji, setAnimateEmoji] = React.useState(false)
   const mqLg = useMediaQuery({ minWidth: 832 }) // TODO: use theme breakpoint here
@@ -57,7 +58,7 @@ function Header({ children, ...props }: HeaderProps): React.ReactElement {
               justifyContent: ['center', null, 'flex-start'],
             })}
           >
-            <Text>{author}</Text>
+            <Text>{user?.name}</Text>
             {mqLg && <Emoji animate={animateEmoji} />}
           </Heading>
           <Heading
@@ -67,7 +68,7 @@ function Header({ children, ...props }: HeaderProps): React.ReactElement {
               fontSize: [4, null, 5],
             })}
           >
-            {title}
+            {user?.title}
           </Heading>
         </Container>
         {children}

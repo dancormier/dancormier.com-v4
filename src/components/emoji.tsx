@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { graphql, useStaticQuery } from 'gatsby'
 import { keyframes } from '@emotion/core'
 import { Text } from 'theme-ui'
 
@@ -19,38 +20,6 @@ function EmojiIndexProvider(props: any): React.ReactElement {
 }
 export { EmojiIndexProvider, useEmojiIndex }
 
-export const emojiList = [
-  '👋',
-  '✌️',
-  '🤟',
-  '🤗',
-  '🙂',
-  '😎',
-  '👨‍💻',
-  '👨‍🌾',
-  '👨‍🎨',
-  '⚛️',
-  '🥁',
-  '💛',
-  '🌹',
-  '✊🏾',
-  '🌈',
-  '💯',
-  '🚀',
-  '⚡️',
-  '🍳',
-  '🍨',
-  '🐶',
-  '🐝',
-  '🐞',
-  '🐛',
-  '🌻',
-  '🌱',
-  '🏔',
-  '🏗',
-  '📡',
-]
-
 const rotateAni = keyframes({
   '0%': { transform: 'rotate(-10deg)' },
   '50%': { transform: 'rotate(15deg)' },
@@ -70,16 +39,30 @@ function Emoji({
 }: EmojiProps): React.ReactElement {
   const [emojiIndex, setEmojiIndex] = useEmojiIndex()
 
+  const { graphqldc } = useStaticQuery(
+    graphql`
+      query {
+        graphqldc {
+          emojis
+        }
+      }
+    `,
+  )
+
+  const { emojis } = graphqldc
+
   React.useEffect(() => {
-    if (animate) {
+    if (animate && emojis) {
       const interval = setInterval(() => {
         setEmojiIndex((prev: number) =>
-          prev === emojiList.length - 1 ? 0 : prev + 1,
+          prev === emojis.length - 1 ? 0 : prev + 1,
         )
       }, speed)
       return () => clearInterval(interval)
     }
-  }, [animate])
+  }, [animate, emojis])
+
+  if (!emojis) return null
 
   return (
     <Text
@@ -92,7 +75,7 @@ function Emoji({
       }}
       {...props}
     >
-      {emojiList[emojiIndex]}
+      {emojis[emojiIndex]}
     </Text>
   )
 }

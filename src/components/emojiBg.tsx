@@ -1,7 +1,8 @@
 import * as React from 'react'
 import { keyframes } from '@emotion/core'
+import { graphql, useStaticQuery } from 'gatsby'
 import { Box } from 'theme-ui'
-import { emojiList, useEmojiIndex } from 'components/emoji'
+import { useEmojiIndex } from 'components/emoji'
 
 const bgAni = keyframes({
   '0%': { backgroundPosition: '0% 0%' },
@@ -14,6 +15,20 @@ function EmojiBG(): React.ReactElement {
   const emojiStyle = `font-size:${
     emojiSize * 0.73
   }px; text-shadow: 1px 1px white`
+
+  const { graphqldc } = useStaticQuery(
+    graphql`
+      query {
+        graphqldc {
+          emojis
+        }
+      }
+    `,
+  )
+
+  const { emojis } = graphqldc
+
+  if (!emojis) return null
 
   return (
     <Box
@@ -36,7 +51,7 @@ function EmojiBG(): React.ReactElement {
         } ${
           emojiSize * 0.83
         }'><foreignObject width='${emojiSize}px' height='${emojiSize}px'><div xmlns='http://www.w3.org/1999/xhtml' style='${emojiStyle}'>${
-          emojiList[emojiIndex]
+          emojis[emojiIndex]
         }</div></foreignObject></svg>")`,
       }}
     />
