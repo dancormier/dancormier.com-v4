@@ -106,11 +106,5 @@ module.exports = {
         path: `${__dirname}/content`,
       },
     },
-    {
-      resolve: 'gatsby-theme-style-guide',
-      options: {
-        basePath: '/design-system',
-      },
-    },
   ],
 }
