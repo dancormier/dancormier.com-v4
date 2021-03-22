@@ -70,7 +70,8 @@ function Socials(): React.ReactElement {
               relative
               text-4xl
               text-green-500
-              lg:mr-6
+              lg:ml-0
+              lg:mr-8
               focus:text-pink-500
               hover:text-pink-500
             "

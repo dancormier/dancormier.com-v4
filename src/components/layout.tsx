@@ -64,6 +64,8 @@ function Layout({ children, title }: LayoutProps): React.ReactElement {
             flex-col
             flex-grow
             h-1/4
+            relative
+            z-1
             lg:h-1/3
           "
         >

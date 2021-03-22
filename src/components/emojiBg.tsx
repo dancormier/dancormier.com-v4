@@ -15,8 +15,8 @@ function EmojiBG(): React.ReactElement {
         filter-grayscale-50
         fixed
         h-full
-        w-full
         top-0
+        w-full
         z-0
       "
       style={{
