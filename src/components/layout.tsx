@@ -69,18 +69,18 @@ function Layout({ children, title }: LayoutProps): React.ReactElement {
             lg:h-1/3
           "
         >
-          {!mqLg && (
-            <div
-              className="
-                flex
-                justify-center
-                text-6xl
-                text-center
-              "
-            >
-              <Emoji animate={true} speed={800} />
-            </div>
-          )}
+          <div
+            className="
+              block
+              flex
+              justify-center
+              text-6xl
+              text-center
+              lg:none
+            "
+          >
+            <Emoji animate={!mqLg} speed={800} />
+          </div>
           <Footer />
         </footer>
       </div>
