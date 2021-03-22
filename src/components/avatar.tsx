@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import { Container, AspectRatio } from 'theme-ui'
 
 function AvatarDC(): React.ReactElement {
   const { file, site } = useStaticQuery(
@@ -25,39 +24,34 @@ function AvatarDC(): React.ReactElement {
   const { src: avatar } = file.childImageSharp.fixed
 
   return (
-    <Container
-      sx={theme => ({
-        borderRadius: 400,
-        boxShadow: [
-          `0 0 2rem 0 ${theme?.colors?.primary}`,
-          null,
-          `0 0 2rem black`,
-        ],
-        filter: [
-          null,
-          null,
-          'grayscale(1) brightness(60%) sepia(1) hue-rotate(-135deg)',
-        ],
-        overflow: 'hidden',
-        transform: 'scale(-1, 1)',
-        transition: '.2s',
-        '&:hover': {
-          boxShadow: `0 0 2rem 0 ${theme?.colors?.primary}`,
-          filter: 'grayscale(0) brightness(100%) sepia(0) hue-rotate(0deg)',
-          transform: 'scale(-1.1, 1.1)',
-        },
-      })}
+    <div
+      className="
+        filter-grayscale
+        h-full
+        overflow-hidden
+        rounded-full
+        scale-100
+        -scale-y-100
+        shadow-lg
+        transform
+        w-full
+        duration-200
+        transition-all
+        ease-in-out
+        hover:filter-none
+        hover:scale-110
+      "
     >
-      <AspectRatio
-        ratio={1}
-        sx={{
-          backgroundImage: `url(${avatar})`,
-          backgroundSize: 'cover',
-        }}
-        role="img"
-        aria-label={`image of ${author}`}
+      <img
+        src={avatar}
+        aria-label={author}
+        className="
+          h-full
+          object-fill
+          w-full
+        "
       />
-    </Container>
+    </div>
   )
 }
 

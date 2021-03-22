@@ -1,114 +1,87 @@
 import * as React from 'react'
-import { Global } from '@emotion/core'
 import { useMediaQuery } from 'react-responsive'
-import { Box, Container } from 'theme-ui'
 import Emoji, { EmojiIndexProvider } from 'components/emoji'
 import EmojiBG from 'components/emojiBg'
 import Header from 'components/header'
 import Footer from 'components/footer'
 import SEO from 'components/seo'
 import Socials from 'components/socials'
-import 'tippy.js/dist/tippy.css'
+// import 'tippy.js/dist/tippy.css'
 
 type LayoutProps = {
   children?: React.ReactNode
   title: string
-  sx?: any
 }
 
-const customTippyTheme = 'custom'
-const tippyBoxClass = `.tippy-box[data-theme~='${customTippyTheme}']`
-
-function Layout({
-  children,
-  title,
-  ...props
-}: LayoutProps): React.ReactElement {
-  const mqLg = useMediaQuery({ minWidth: 832 }) // TODO: use theme breakpoint here
+function Layout({ children, title }: LayoutProps): React.ReactElement {
+  const mqLg = useMediaQuery({ minWidth: 1024 })
 
   return (
     <EmojiIndexProvider>
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          height: '100vh',
+      <div
+        className="
+          bg-gray-900
+          flex
+          flex-col
+          h-screen
+          overflow-scroll
+          text-white
+        "
+        style={{
           maxHeight: '-webkit-fill-available',
           minHeight: '-webkit-fill-available',
-          overflow: 'scroll',
         }}
-        {...props}
       >
         <EmojiBG />
-        <Global
-          styles={theme => ({
-            a: {
-              color: theme.colors.link,
-              fontWeight: 700,
-              transition: '.1s',
-              '&:hover, &:focus': {
-                color: theme.colors.highlight,
-              },
-            },
-            body: {
-              maxHeight: '-webkit-fill-available',
-              height: '100vh',
-              minHeight: '-webkit-fill-available',
-            },
-            p: {
-              marginBlockEnd: theme.space[3],
-              marginBlockStart: theme.space[3],
-            },
-            [tippyBoxClass]: {
-              backgroundColor: theme.colors.primary,
-              border: `1px solid ${theme.colors.primary}`,
-            },
-            [`${tippyBoxClass}[data-placement^='top'] > .tippy-arrow::before`]: {
-              borderTopColor: theme.colors.primary,
-            },
-            [`${tippyBoxClass}[data-placement^='bottom'] > .tippy-arrow::before`]: {
-              borderBottomColor: theme.colors.primary,
-            },
-          })}
-        />
         <SEO title={title} />
-        <Container
-          sx={{
-            paddingTop: ['10vh', null, '25vh'],
-            textAlign: ['center', null, 'left'],
-          }}
+        <div
+          className="
+            flex
+            flex-grow
+            h-3/4
+            items-center
+            justify-center
+            relative
+            text-center
+            lg:h-2/3
+            lg:text-left
+            z-1
+          "
         >
           <Header>
-            <Box sx={{ flexGrow: 1 }}>
-              {children}
-              <Socials
-                sx={{
-                  fontSize: 5,
-                }}
-              />
-            </Box>
+            <div className="flex flex-col flex-grow">
+              {children && (
+                <div className="font-lg my-2 lg:my-5">{children}</div>
+              )}
+              <Socials />
+            </div>
           </Header>
-        </Container>
-        <Box sx={{ flexGrow: 1 }} />
-        {!mqLg && (
-          <Container
-            sx={{
-              display: ['flex', null, 'none'],
-              fontSize: 6,
-              justifyContent: 'center',
-              textAlign: 'center',
-            }}
-          >
-            <Emoji animate={true} speed={800} />
-          </Container>
-        )}
-        <Footer
-          sx={{
-            justifySelf: 'flex-end',
-            textAlign: ['center', null, 'left'],
-          }}
-        />
-      </Box>
+        </div>
+        <footer
+          className="
+            justify-end
+            flex
+            flex-col
+            flex-grow
+            h-1/4
+            lg:h-1/3
+          "
+        >
+          {!mqLg && (
+            <div
+              className="
+                flex
+                justify-center
+                text-6xl
+                text-center
+              "
+            >
+              <Emoji animate={true} speed={800} />
+            </div>
+          )}
+          <Footer />
+        </footer>
+      </div>
     </EmojiIndexProvider>
   )
 }

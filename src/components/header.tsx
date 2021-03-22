@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import { useMediaQuery } from 'react-responsive'
-import { Container, Heading, Text } from 'theme-ui'
 import AvatarDC from './avatar'
 import Emoji from './emoji'
 
@@ -9,7 +8,7 @@ type HeaderProps = {
   children?: React.ReactNode
 }
 
-function Header({ children, ...props }: HeaderProps): React.ReactElement {
+function Header({ children }: HeaderProps): React.ReactElement {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -25,62 +24,55 @@ function Header({ children, ...props }: HeaderProps): React.ReactElement {
   const { author, title } = site.siteMetadata
 
   const [animateEmoji, setAnimateEmoji] = React.useState(false)
-  const mqLg = useMediaQuery({ minWidth: 832 }) // TODO: use theme breakpoint here
+  const mqLg = useMediaQuery({ minWidth: 1024 })
 
   return (
-    <Container
-      sx={{
-        alignItems: 'center',
-        display: 'flex',
-        flexDirection: ['column-reverse', null, 'row'],
-      }}
-      {...props}
-    >
-      <Container
-        sx={{
-          marginX: '2',
-          width: 'auto',
-        }}
-      >
-        <Container
-          as="header"
+    <div className="flex items-center flex-col-reverse lg:flex-row lg:justify-between max-w-screen-lg">
+      <div className="mx-2 w-auto">
+        <header
           onMouseEnter={() => setAnimateEmoji(true)}
           onMouseLeave={() => setAnimateEmoji(false)}
         >
-          <Heading
-            as="h1"
-            sx={theme => ({
-              ...theme?.styles?.h1,
-              display: 'flex',
-              flexDirection: ['column-reverse', null, 'row'],
-              fontSize: [6, null, 7],
-              justifyContent: ['center', null, 'flex-start'],
-            })}
+          <h1
+            className="
+              flex
+              flex-col-reverse
+              font-display
+              justify-center
+              text-5xl
+              text-pink-500
+              uppercase
+              lg:flex-row
+              lg:justify-start
+              lg:text-6xl
+            "
           >
-            <Text>{author}</Text>
+            <span>{author}</span>
             {mqLg && <Emoji animate={animateEmoji} />}
-          </Heading>
-          <Heading
-            as="h2"
-            sx={theme => ({
-              ...theme?.styles?.h2,
-              fontSize: [4, null, 5],
-            })}
+          </h1>
+          <h2
+            className="
+              flex
+              flex-col-reverse
+              font-display
+              justify-center
+              text-2xl
+              text-green-500
+              uppercase
+              lg:flex-row
+              lg:justify-start
+              lg:text-3xl
+            "
           >
             {title}
-          </Heading>
-        </Container>
+          </h2>
+        </header>
         {children}
-      </Container>
-      <Container
-        sx={{
-          marginBottom: [4, null, 0],
-          width: ['40%', null, '30%'],
-        }}
-      >
+      </div>
+      <div className="mb-4 w-2/5 lg:mb-0 lg:ml-12 lg:w-72">
         <AvatarDC />
-      </Container>
-    </Container>
+      </div>
+    </div>
   )
 }
 
