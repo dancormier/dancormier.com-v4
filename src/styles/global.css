@@ -3,15 +3,17 @@
 @tailwind utilities;
 
 @layer utilities {
-  @variants hover, focus {
-    .filter-none {
-      filter: none;
-    }
-    .filter-grayscale {
-      filter: grayscale(1);
-    }
-    .filter-grayscale-50 {
-      filter: grayscale(0.5);
+  @responsive {
+    @variants hover, focus {
+      .filter-none {
+        filter: none;
+      }
+      .filter-grayscale {
+        filter: grayscale(1);
+      }
+      .filter-grayscale-50 {
+        filter: grayscale(0.5);
+      }
     }
   }
 }

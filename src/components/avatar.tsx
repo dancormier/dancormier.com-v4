@@ -26,7 +26,6 @@ function AvatarDC(): React.ReactElement {
   return (
     <div
       className="
-        filter-grayscale
         h-full
         overflow-hidden
         rounded-full
@@ -38,8 +37,9 @@ function AvatarDC(): React.ReactElement {
         duration-200
         transition-all
         ease-in-out
+        lg:filter-grayscale
         hover:filter-none
-        hover:scale-110
+        lg:hover:scale-110
       "
     >
       <img

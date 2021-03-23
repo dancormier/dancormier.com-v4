@@ -71,12 +71,12 @@ function Layout({ children, title }: LayoutProps): React.ReactElement {
         >
           <div
             className="
-              block
+              opacity-100
               flex
               justify-center
               text-6xl
               text-center
-              lg:none
+              lg:opacity-0
             "
           >
             <Emoji animate={!mqLg} speed={800} />

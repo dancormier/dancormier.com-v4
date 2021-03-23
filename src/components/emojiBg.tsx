@@ -14,10 +14,11 @@ function EmojiBG(): React.ReactElement {
         animate-scroll
         filter-grayscale-50
         fixed
-        h-full
+        h-0
         top-0
         w-full
         z-0
+        lg:h-full
       "
       style={{
         backgroundImage: `url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 ${
