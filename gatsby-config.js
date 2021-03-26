@@ -42,8 +42,8 @@ module.exports = {
     'gatsby-plugin-fontawesome-css',
     'gatsby-plugin-netlify-cms',
     'gatsby-plugin-offline',
+    'gatsby-plugin-postcss',
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-theme-ui',
     'gatsby-plugin-sharp',
     'gatsby-plugin-typescript',
     'gatsby-transformer-sharp',
@@ -104,12 +104,6 @@ module.exports = {
       options: {
         name: `content`,
         path: `${__dirname}/content`,
-      },
-    },
-    {
-      resolve: 'gatsby-theme-style-guide',
-      options: {
-        basePath: '/design-system',
       },
     },
   ],

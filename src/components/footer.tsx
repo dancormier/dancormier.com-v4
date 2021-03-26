@@ -1,12 +1,7 @@
 import * as React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import { Container, Text } from 'theme-ui'
 
-type FooterProps = {
-  sx?: any
-}
-
-function Footer(props: FooterProps): React.ReactElement {
+function Footer(): React.ReactElement {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -21,22 +16,9 @@ function Footer(props: FooterProps): React.ReactElement {
   const { author } = site.siteMetadata
 
   return (
-    <Container
-      as="footer"
-      sx={{
-        py: 3,
-        ...props.sx,
-      }}
-    >
-      <Text
-        sx={{
-          fontSize: 1,
-          textAlign: 'center',
-        }}
-      >
-        © {new Date().getFullYear()} {author}
-      </Text>
-    </Container>
+    <div className="py-3 text-center text-sm">
+      © {new Date().getFullYear()} {author}
+    </div>
   )
 }
 
