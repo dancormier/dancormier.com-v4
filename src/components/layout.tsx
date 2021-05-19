@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Global } from '@emotion/core'
+import { Global, css } from '@emotion/core'
 import Helmet from 'react-helmet'
 import { useMediaQuery } from 'react-responsive'
 import { Box, Container } from 'theme-ui'
@@ -41,13 +41,11 @@ function Layout({
         <script src="https://unpkg.com/@stackoverflow/stacks/dist/js/stacks.min.js" />
       </Helmet>
       <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
+        className="d-flex fd-column overflow-scroll"
+        style={{
           height: '100vh',
           maxHeight: '-webkit-fill-available',
           minHeight: '-webkit-fill-available',
-          overflow: 'scroll',
         }}
         {...props}
       >
@@ -85,40 +83,33 @@ function Layout({
         />
         <SEO title={title} />
         <Container
-          sx={{
-            paddingTop: ['10vh', null, '25vh'],
-            textAlign: ['center', null, 'left'],
-          }}
+          className="ta-left md:ta-center"
+          // Added to accomidate stacks
+          css={css`
+            padding-top: 25vh;
+            @media (max-width: 980px) {
+              padding-top: 10vh;
+            }
+          `}
         >
           <Header>
-            <Box sx={{ flexGrow: 1 }}>
+            <Box className="fl-grow1">
               {children}
-              <Socials
-                sx={{
-                  fontSize: 5,
-                }}
-              />
+              <Socials className="fs-headline2" />
             </Box>
           </Header>
         </Container>
-        <Box sx={{ flexGrow: 1 }} />
+        <Box className="fl-grow1" />
         {!mqLg && (
-          <Container
-            sx={{
-              display: ['flex', null, 'none'],
-              fontSize: 6,
-              justifyContent: 'center',
-              textAlign: 'center',
-            }}
-          >
+          <Container className="d-flex fs-display1 jc-center ta-center">
             <Emoji animate={true} speed={800} />
           </Container>
         )}
         <Footer
-          sx={{
-            justifySelf: 'flex-end',
-            textAlign: ['center', null, 'left'],
-          }}
+          className="ta-left sm:ta-center"
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
+          style={{ justifySelf: 'flex-end' }}
         />
       </Box>
     </EmojiIndexProvider>
