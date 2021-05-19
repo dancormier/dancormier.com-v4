@@ -22,20 +22,8 @@ function Footer(props: FooterProps): React.ReactElement {
   const { author } = site.siteMetadata
 
   return (
-    <Container
-      as="footer"
-      sx={{
-        py: 3,
-        ...props.sx,
-      }}
-      {...props}
-    >
-      <Text
-        sx={{
-          fontSize: 1,
-          textAlign: 'center',
-        }}
-      >
+    <Container as="footer" className={`.py12 ${props.className}`} {...props}>
+      <Text className="fs-body1 ta-center">
         © {new Date().getFullYear()} {author}
       </Text>
     </Container>
