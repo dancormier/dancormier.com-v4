@@ -26,33 +26,16 @@ function AvatarDC(): React.ReactElement {
 
   return (
     <Container
-      sx={theme => ({
-        borderRadius: 400,
-        boxShadow: [
-          `0 0 2rem 0 ${theme?.colors?.primary}`,
-          null,
-          `0 0 2rem black`,
-        ],
-        filter: [
-          null,
-          null,
-          'grayscale(1) brightness(60%) sepia(1) hue-rotate(-135deg)',
-        ],
-        overflow: 'hidden',
+      className="bar-pill bs-lg overflow-hidden"
+      style={{
         transform: 'scale(-1, 1)',
-        transition: '.2s',
-        '&:hover': {
-          boxShadow: `0 0 2rem 0 ${theme?.colors?.primary}`,
-          filter: 'grayscale(0) brightness(100%) sepia(0) hue-rotate(0deg)',
-          transform: 'scale(-1.1, 1.1)',
-        },
-      })}
+      }}
     >
       <AspectRatio
         ratio={1}
-        sx={{
+        className="bg-cover"
+        style={{
           backgroundImage: `url(${avatar})`,
-          backgroundSize: 'cover',
         }}
         role="img"
         aria-label={`image of ${author}`}
