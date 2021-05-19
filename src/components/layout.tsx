@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { Global } from '@emotion/core'
+import Helmet from 'react-helmet'
 import { useMediaQuery } from 'react-responsive'
 import { Box, Container } from 'theme-ui'
 import Emoji, { EmojiIndexProvider } from 'components/emoji'
@@ -28,6 +29,17 @@ function Layout({
 
   return (
     <EmojiIndexProvider>
+      <Helmet
+        bodyAttributes={{
+          class: 'theme-system theme-dark',
+        }}
+      >
+        <link
+          rel="stylesheet"
+          href="https://unpkg.com/@stackoverflow/stacks/dist/css/stacks.min.css"
+        />
+        <script src="https://unpkg.com/@stackoverflow/stacks/dist/js/stacks.min.js" />
+      </Helmet>
       <Box
         sx={{
           display: 'flex',
