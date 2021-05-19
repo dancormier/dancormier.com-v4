@@ -78,10 +78,7 @@ function Socials(props: SocialsProps): React.ReactElement {
             <Link
               aria-label={linkLabel}
               href={url}
-              sx={{
-                ml: [3, null, 0],
-                mr: [3, null, 4],
-              }}
+              className="fc-green-600 h:fc-yellow-700 md:ml0 md:mr16 ml12 mr12"
             >
               {Icon(s.type)}
             </Link>

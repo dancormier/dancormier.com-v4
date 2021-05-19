@@ -29,19 +29,10 @@ function Header({ children, ...props }: HeaderProps): React.ReactElement {
 
   return (
     <Container
-      sx={{
-        alignItems: 'center',
-        display: 'flex',
-        flexDirection: ['column-reverse', null, 'row'],
-      }}
+      className="ai-center d-flex fd-row md:fd-column-reverse"
       {...props}
     >
-      <Container
-        sx={{
-          marginX: '2',
-          width: 'auto',
-        }}
-      >
+      <Container className="mx8 w-auto">
         <Container
           as="header"
           onMouseEnter={() => setAnimateEmoji(true)}
@@ -49,34 +40,20 @@ function Header({ children, ...props }: HeaderProps): React.ReactElement {
         >
           <Heading
             as="h1"
-            sx={theme => ({
-              ...theme?.styles?.h1,
-              display: 'flex',
-              flexDirection: ['column-reverse', null, 'row'],
-              fontSize: [6, null, 7],
-              justifyContent: ['center', null, 'flex-start'],
-            })}
+            className="d-flex fc-yellow-700 fs-display3 md:fd-row tt-uppercase jc-center"
           >
             <Text>{author}</Text>
             {mqLg && <Emoji animate={animateEmoji} />}
           </Heading>
-          <Heading
-            as="h2"
-            sx={theme => ({
-              ...theme?.styles?.h2,
-              fontSize: [4, null, 5],
-            })}
-          >
+          <Heading as="h2" className="fc-green-600 tt-uppercase fs-headline2">
             {title}
           </Heading>
         </Container>
-        {children}
+        <Container className="mt12">{children}</Container>
       </Container>
       <Container
-        sx={{
-          marginBottom: [4, null, 0],
-          width: ['40%', null, '30%'],
-        }}
+        // md:w40 doesn't exist
+        className="mb0 md:mb16 w30 md:w40"
       >
         <AvatarDC />
       </Container>

@@ -3,11 +3,10 @@ import { useStaticQuery, graphql } from 'gatsby'
 import { Container, Text } from 'theme-ui'
 
 type FooterProps = {
-  sx?: any
   className?: string
 }
 
-function Footer({ sx, className, ...props }: FooterProps): React.ReactElement {
+function Footer({ className, ...props }: FooterProps): React.ReactElement {
   const { site } = useStaticQuery(
     graphql`
       query {

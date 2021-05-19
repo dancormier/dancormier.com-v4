@@ -41,7 +41,7 @@ function Layout({
         <script src="https://unpkg.com/@stackoverflow/stacks/dist/js/stacks.min.js" />
       </Helmet>
       <Box
-        className="d-flex fd-column overflow-scroll"
+        className="d-flex fd-column ff-sans fs-body3 overflow-scroll"
         style={{
           height: '100vh',
           maxHeight: '-webkit-fill-available',
@@ -51,35 +51,31 @@ function Layout({
       >
         <EmojiBG />
         <Global
-          styles={theme => ({
-            a: {
-              color: theme.colors.link,
-              fontWeight: 700,
-              transition: '.1s',
-              '&:hover, &:focus': {
-                color: theme.colors.highlight,
-              },
-            },
+          styles={{
             body: {
-              maxHeight: '-webkit-fill-available',
               height: '100vh',
+              maxHeight: '-webkit-fill-available',
               minHeight: '-webkit-fill-available',
             },
-            p: {
-              marginBlockEnd: theme.space[3],
-              marginBlockStart: theme.space[3],
+            a: {
+              color: 'var(--green-600) !important',
+              textDecoration: 'underline !important',
+              '&:hover, &:focus': {
+                color: 'var(--yellow-700) !important',
+              },
             },
             [tippyBoxClass]: {
-              backgroundColor: theme.colors.primary,
-              border: `1px solid ${theme.colors.primary}`,
+              backgroundColor: 'var(--yellow-700)',
+              border: '1px solid var(--yellow-700)',
+              color: 'var(--white)',
             },
             [`${tippyBoxClass}[data-placement^='top'] > .tippy-arrow::before`]: {
-              borderTopColor: theme.colors.primary,
+              borderTopColor: 'var(--yellow-700)',
             },
             [`${tippyBoxClass}[data-placement^='bottom'] > .tippy-arrow::before`]: {
-              borderBottomColor: theme.colors.primary,
+              borderBottomColor: 'var(--yellow-700)',
             },
-          })}
+          }}
         />
         <SEO title={title} />
         <Container
