@@ -25,7 +25,7 @@ function Header({ children, ...props }: HeaderProps): React.ReactElement {
   const { author, title } = site.siteMetadata
 
   const [animateEmoji, setAnimateEmoji] = React.useState(false)
-  const mqLg = useMediaQuery({ minWidth: 832 }) // TODO: use theme breakpoint here
+  const mqLg = useMediaQuery({ minWidth: 980 }) // TODO: use theme breakpoint here
 
   return (
     <Container

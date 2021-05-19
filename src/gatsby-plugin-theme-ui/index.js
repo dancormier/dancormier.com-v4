@@ -2,6 +2,7 @@ import { base as theme } from '@theme-ui/presets'
 import { merge } from 'theme-ui'
 
 export default merge(theme, {
+  breakpoints: ['640px', '980px', '1264px'],
   colors: {
     background: '#20253c',
     text: '#faeae0',

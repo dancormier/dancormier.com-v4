@@ -25,7 +25,7 @@ function Layout({
   title,
   ...props
 }: LayoutProps): React.ReactElement {
-  const mqLg = useMediaQuery({ minWidth: 832 }) // TODO: use theme breakpoint here
+  const mqLg = useMediaQuery({ minWidth: 980 }) // TODO: use theme breakpoint here
 
   return (
     <EmojiIndexProvider>
