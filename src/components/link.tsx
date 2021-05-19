@@ -11,12 +11,7 @@ function Link({ ...props }: LinkProps): React.ReactElement {
     <GatsbyLink
       {...props}
       to={props.to}
-      sx={{
-        color: 'link',
-        '&:hover, &:focus': {
-          color: 'highlight',
-        },
-      }}
+      className="fc-green-500 h:fc-orange-500 f:fc-orange-500"
     />
   )
 }
