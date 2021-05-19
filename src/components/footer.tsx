@@ -4,6 +4,7 @@ import { Container, Text } from 'theme-ui'
 
 type FooterProps = {
   sx?: any
+  className?: string
 }
 
 function Footer(props: FooterProps): React.ReactElement {
@@ -27,6 +28,7 @@ function Footer(props: FooterProps): React.ReactElement {
         py: 3,
         ...props.sx,
       }}
+      {...props}
     >
       <Text
         sx={{

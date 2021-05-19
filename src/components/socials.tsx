@@ -12,6 +12,7 @@ import Tippy from '@tippyjs/react'
 
 type SocialsProps = {
   children?: React.ReactNode
+  className?: string
 }
 
 type SocialProps = {
