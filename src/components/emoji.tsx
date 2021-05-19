@@ -59,12 +59,14 @@ const rotateAni = keyframes({
 
 type EmojiProps = {
   animate?: boolean
+  className?: string
   sx?: any
   speed?: number
 }
 
 function Emoji({
   animate = false,
+  className,
   speed = 400,
   ...props
 }: EmojiProps): React.ReactElement {
@@ -83,7 +85,7 @@ function Emoji({
 
   return (
     <Text
-      className="ml8 mb0 lg:ml8 lg:ml0"
+      className={`ml8 mb0 lg:ml8 lg:ml0 ${className}`}
       style={{
         cursor: 'crosshair',
       }}

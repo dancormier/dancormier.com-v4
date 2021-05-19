@@ -2,7 +2,11 @@ import * as React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import { Container, AspectRatio } from 'theme-ui'
 
-function AvatarDC(): React.ReactElement {
+type AvatarProps = {
+  className?: string
+}
+
+function AvatarDC({ className, ...props }: AvatarProps): React.ReactElement {
   const { file, site } = useStaticQuery(
     graphql`
       query {
@@ -26,10 +30,11 @@ function AvatarDC(): React.ReactElement {
 
   return (
     <Container
-      className="bar-pill bs-lg overflow-hidden"
+      className={`bar-pill bs-lg overflow-hidden ${className}`}
       style={{
         transform: 'scale(-1, 1)',
       }}
+      {...props}
     >
       <AspectRatio
         ratio={1}

@@ -7,7 +7,7 @@ type FooterProps = {
   className?: string
 }
 
-function Footer(props: FooterProps): React.ReactElement {
+function Footer({ sx, className, ...props }: FooterProps): React.ReactElement {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -22,7 +22,7 @@ function Footer(props: FooterProps): React.ReactElement {
   const { author } = site.siteMetadata
 
   return (
-    <Container as="footer" className={`.py12 ${props.className}`} {...props}>
+    <Container as="footer" className={`py12 ${className}`} {...props}>
       <Text className="fs-body1 ta-center">
         © {new Date().getFullYear()} {author}
       </Text>

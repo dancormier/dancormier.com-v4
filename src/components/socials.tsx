@@ -36,7 +36,7 @@ const Icon = (type: string) => {
   }
 }
 
-function Socials({ ...props }: SocialsProps): React.ReactElement {
+function Socials(props: SocialsProps): React.ReactElement {
   const { file, site } = useStaticQuery(
     graphql`
       query {
