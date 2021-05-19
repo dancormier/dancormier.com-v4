@@ -83,11 +83,12 @@ function Emoji({
 
   return (
     <Text
+      className="ml8 mb0 lg:ml8 lg:ml0"
+      style={{
+        cursor: 'crosshair',
+      }}
       sx={{
         animation: `${rotateAni} 3s infinite cubic-bezier(0.25, 0.1, 0.25, 1)`,
-        cursor: 'crosshair',
-        marginLeft: [0, null, 2],
-        marginBottom: [2, null, 0],
         ...props.sx,
       }}
       {...props}
