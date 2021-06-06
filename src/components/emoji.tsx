@@ -4,7 +4,7 @@ import { Text } from 'theme-ui'
 
 const EmojiIndexContext = React.createContext(0)
 
-function useEmojiIndex(): number {
+function useEmojiIndex(): any {
   const context = React.useContext(EmojiIndexContext)
   if (!context) {
     throw new Error(`useEmojiIndex must be used within a EmojiIndexProvider`)
