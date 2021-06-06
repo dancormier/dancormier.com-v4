@@ -4,8 +4,8 @@ module.exports = {
   extends: [
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
-    'prettier',
     'plugin:prettier/recommended',
+    'prettier',
   ],
   settings: {
     react: {
@@ -32,7 +32,7 @@ module.exports = {
     'react/prop-types': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
     // Enable prettier rules
-    'prettier/prettier': 'error',
+    'prettier/prettier': 'warn',
     // interface start with capital I
     '@typescript-eslint/interface-name-prefix': 'off',
     // allow "any" as type
