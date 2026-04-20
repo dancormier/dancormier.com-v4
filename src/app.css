@@ -1,0 +1,47 @@
+:root {
+  --color-bg: #20253c;
+  --color-text: #faeae0;
+  --color-primary: #f36c9c;
+  --color-secondary: #10c785;
+  --color-link: #10c785;
+  --color-highlight: #f36c9c;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-heading: 'Fredoka One', system-ui, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  min-height: 100dvh;
+}
+
+a {
+  color: var(--color-link);
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.1s;
+}
+
+a:hover,
+a:focus {
+  color: var(--color-highlight);
+}
+
+p {
+  margin-block-start: 0.75rem;
+  margin-block-end: 0.75rem;
+}
