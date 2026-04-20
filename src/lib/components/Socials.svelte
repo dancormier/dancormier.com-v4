@@ -102,7 +102,7 @@
     font-weight: 400;
     left: 50%;
     opacity: 0;
-    padding: 4px 12px;
+    padding: 8px 6px;
     pointer-events: none;
     position: absolute;
     transform: translateX(-50%);
