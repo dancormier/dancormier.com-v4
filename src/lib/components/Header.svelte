@@ -1,0 +1,160 @@
+<script lang="ts">
+  import type { Snippet } from 'svelte';
+  import Emoji from './Emoji.svelte';
+
+  let { children }: { children?: Snippet } = $props();
+  let animateEmoji = $state(false);
+</script>
+
+<div class="header-wrap">
+  <header class="header">
+    <div class="header-text">
+      <!-- svelte-ignore a11y_no_static_element_interactions -->
+      <div
+        class="name-row"
+        onmouseenter={() => (animateEmoji = true)}
+        onmouseleave={() => (animateEmoji = false)}
+      >
+        <h1>
+          Dan Cormier
+          <span class="emoji-desktop">
+            <Emoji animate={animateEmoji} />
+          </span>
+        </h1>
+        <h2>Frontend engineer</h2>
+      </div>
+      {@render children?.()}
+    </div>
+    <div class="avatar-wrap">
+      <img
+        src="/avatar.jpg"
+        alt="Dan Cormier"
+        class="avatar"
+        width="200"
+        height="200"
+      />
+    </div>
+  </header>
+
+  <div class="emoji-mobile">
+    <Emoji animate={true} speed={800} />
+  </div>
+</div>
+
+<style>
+  .header-wrap {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 10vh 1.5rem 0;
+  }
+
+  @media (min-width: 832px) {
+    .header-wrap {
+      padding-top: 25vh;
+    }
+  }
+
+  .header {
+    align-items: center;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 1.5rem;
+    text-align: center;
+  }
+
+  @media (min-width: 832px) {
+    .header {
+      flex-direction: row;
+      text-align: left;
+    }
+  }
+
+  .header-text {
+    flex: 1;
+  }
+
+  h1 {
+    align-items: center;
+    color: var(--color-primary);
+    display: flex;
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 6vw, 3rem);
+    justify-content: center;
+    margin: 0 0 0.25rem;
+    text-transform: uppercase;
+  }
+
+  @media (min-width: 832px) {
+    h1 {
+      justify-content: flex-start;
+    }
+  }
+
+  h2 {
+    color: var(--color-secondary);
+    font-family: var(--font-heading);
+    font-size: clamp(1.2rem, 3.5vw, 1.6rem);
+    margin: 0 0 0.5rem;
+    text-transform: uppercase;
+  }
+
+  .emoji-desktop {
+    display: none;
+  }
+
+  @media (min-width: 832px) {
+    .emoji-desktop {
+      display: inline;
+    }
+  }
+
+  .avatar-wrap {
+    flex-shrink: 0;
+    width: 40%;
+    max-width: 200px;
+  }
+
+  @media (min-width: 832px) {
+    .avatar-wrap {
+      width: 30%;
+    }
+  }
+
+  .avatar {
+    aspect-ratio: 1;
+    border-radius: 50%;
+    box-shadow: 0 0 2rem 0 var(--color-primary);
+    display: block;
+    height: auto;
+    object-fit: cover;
+    transform: scale(-1, 1);
+    transition: box-shadow 0.2s, filter 0.2s, transform 0.2s;
+    width: 100%;
+  }
+
+  @media (min-width: 832px) {
+    .avatar {
+      box-shadow: 0 0 2rem black;
+      filter: grayscale(1) brightness(60%) sepia(1) hue-rotate(-135deg);
+    }
+
+    .avatar:hover {
+      box-shadow: 0 0 2rem 0 var(--color-primary);
+      filter: none;
+      transform: scale(-1.1, 1.1);
+    }
+  }
+
+  .emoji-mobile {
+    display: flex;
+    font-size: 2.5rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+  }
+
+  @media (min-width: 832px) {
+    .emoji-mobile {
+      display: none;
+    }
+  }
+</style>
