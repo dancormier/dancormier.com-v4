@@ -57,7 +57,7 @@
     flex-wrap: wrap;
     font-size: 2rem;
     gap: 0 1.25rem;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
   }
 
   .social-link {

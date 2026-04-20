@@ -105,8 +105,12 @@
     color: var(--color-secondary);
     font-family: var(--font-heading);
     font-size: clamp(1.5rem, 3.5vw, 2rem);
-    margin: 0 0 0.5rem;
+    margin: 0 0 1rem;
     text-transform: uppercase;
+  }
+
+  .header-text :global(p) {
+    margin: 0 0 0.5rem;
   }
 
   .emoji-desktop {
