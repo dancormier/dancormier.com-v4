@@ -55,13 +55,13 @@
     align-items: center;
     display: flex;
     flex-wrap: wrap;
-    font-size: 1.6rem;
+    font-size: 2rem;
     gap: 0 1.25rem;
     margin-top: 1rem;
   }
 
   .social-link {
-    color: var(--color-text);
+    color: var(--color-link);
     position: relative;
     transition: color 0.1s;
   }

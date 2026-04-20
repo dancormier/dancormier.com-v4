@@ -89,7 +89,7 @@
     color: var(--color-primary);
     display: flex;
     font-family: var(--font-heading);
-    font-size: clamp(2rem, 6vw, 3rem);
+    font-size: clamp(3rem, 6vw, 4rem);
     justify-content: center;
     margin: 0 0 0.25rem;
     text-transform: uppercase;
@@ -104,7 +104,7 @@
   h2 {
     color: var(--color-secondary);
     font-family: var(--font-heading);
-    font-size: clamp(1.2rem, 3.5vw, 1.6rem);
+    font-size: clamp(1.5rem, 3.5vw, 2rem);
     margin: 0 0 0.5rem;
     text-transform: uppercase;
   }
@@ -127,6 +127,7 @@
 
   @media (min-width: 832px) {
     .avatar-wrap {
+      max-width: none;
       width: 30%;
     }
   }
