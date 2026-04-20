@@ -61,6 +61,9 @@ public
 # Mac files
 .DS_Store
 
+# Superpowers brainstorming sessions
+.superpowers/
+
 # Yarn
 yarn-error.log
 .pnp/
