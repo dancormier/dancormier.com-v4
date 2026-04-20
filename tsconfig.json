@@ -1,19 +1,13 @@
 {
+  "extends": "./.svelte-kit/tsconfig.json",
   "compilerOptions": {
-    "module": "commonjs",
-    "target": "esnext",
-    "jsx": "preserve",
-    "lib": ["dom", "esnext"],
-    "baseUrl": "./src",
-    "strict": true,
-    "noEmit": true,
-    "isolatedModules": true,
+    "allowJs": true,
+    "checkJs": true,
     "esModuleInterop": true,
-    "noUnusedLocals": false,
-    "paths": {
-      "components": ["/components/*"],
-    }
-  },
-  "exclude": ["node_modules", "public", ".cache"],
-  "include": ["./src/**/*"],
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "strict": true
+  }
 }
