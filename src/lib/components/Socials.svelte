@@ -57,7 +57,14 @@
     flex-wrap: wrap;
     font-size: 2rem;
     gap: 0 2.5rem;
+    justify-content: center;
     margin-top: 0.5rem;
+  }
+
+  @media (min-width: 832px) {
+    .socials {
+      justify-content: flex-start;
+    }
   }
 
   .social-link {
