@@ -4,7 +4,7 @@
 </script>
 
 <svelte:head>
-  <title>Dan Cormier</title>
+  <title>Dan Cormier | Frontend Engineer</title>
 </svelte:head>
 
 <Header>
