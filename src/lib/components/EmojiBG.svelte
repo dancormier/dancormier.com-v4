@@ -4,9 +4,10 @@
   const size = 75;
   const displaySize = size * 0.73;
 
-  const bgImage = $derived(
-    `url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 ${size * 0.78} ${size * 0.83}'><foreignObject width='${size}px' height='${size}px'><div xmlns='http://www.w3.org/1999/xhtml' style='font-size:${displaySize}px;text-shadow:1px 1px white'>${emojiList[$emojiIndex]}</div></foreignObject></svg>")`
-  );
+  const bgImage = $derived.by(() => {
+    const svg = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 ${size * 0.78} ${size * 0.83}'><foreignObject width='${size}px' height='${size}px'><div xmlns='http://www.w3.org/1999/xhtml' style='font-size:${displaySize}px;text-shadow:1px 1px white'>${emojiList[$emojiIndex]}</div></foreignObject></svg>`;
+    return `url("data:image/svg+xml,${encodeURIComponent(svg)}")`;
+  });
 </script>
 
 <div class="emoji-bg" style:background-image={bgImage}></div>

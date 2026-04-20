@@ -4,6 +4,7 @@ node_modules/
 # SvelteKit
 .svelte-kit/
 build/
+.netlify/
 
 # Environment
 .env
