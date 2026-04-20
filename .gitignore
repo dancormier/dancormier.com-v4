@@ -16,6 +16,7 @@ build/
 
 # Superpowers brainstorming sessions
 .superpowers/
+docs/superpowers/
 
 # Gatsby artifacts (safe to ignore transitionally)
 .cache/
