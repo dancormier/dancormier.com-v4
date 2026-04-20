@@ -56,7 +56,7 @@
     display: flex;
     flex-wrap: wrap;
     font-size: 2rem;
-    gap: 0 1.25rem;
+    gap: 0 2.5rem;
     margin-top: 0.5rem;
   }
 
