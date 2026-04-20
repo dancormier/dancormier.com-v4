@@ -91,7 +91,7 @@
     font-family: var(--font-heading);
     font-size: clamp(3rem, 6vw, 4rem);
     justify-content: center;
-    margin: 0 0 0.25rem;
+    margin: 0;
     text-transform: uppercase;
   }
 
@@ -110,7 +110,7 @@
   }
 
   .header-text :global(p) {
-    margin: 0 0 0.5rem;
+    margin: 0;
   }
 
   .emoji-desktop {
