@@ -4,6 +4,17 @@
 
   let { children }: { children?: Snippet } = $props();
   let animateEmoji = $state(false);
+  let isMobile = $state(false);
+
+  $effect(() => {
+    const mq = window.matchMedia('(max-width: 831px)');
+    isMobile = mq.matches;
+    const handler = (e: MediaQueryListEvent) => {
+      isMobile = e.matches;
+    };
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  });
 </script>
 
 <div class="header-wrap">
@@ -37,7 +48,7 @@
   </header>
 
   <div class="emoji-mobile">
-    <Emoji animate={true} speed={800} />
+    <Emoji animate={isMobile} speed={800} />
   </div>
 </div>
 

@@ -1,7 +1,7 @@
 <script lang="ts">
   import { icon as faIcon } from '@fortawesome/fontawesome-svg-core';
   import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-  import { faFileAlt, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
+  import { faFileLines, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 
   const socials = [
     {
@@ -23,7 +23,7 @@
       label: "View Dan Cormier's resume",
       tooltip: 'resume',
       url: 'https://docs.google.com/document/d/1XcjhIYcCvxCqTJQaYUWsokPwOX4lrHoD9FEq519urXM/edit?usp=sharing',
-      iconHtml: faIcon(faFileAlt).html[0],
+      iconHtml: faIcon(faFileLines).html[0],
     },
     {
       type: 'email',
