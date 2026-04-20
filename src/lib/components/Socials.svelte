@@ -116,4 +116,9 @@
       opacity: 1;
     }
   }
+
+  .social-link[data-tooltip]:focus-visible::before,
+  .social-link[data-tooltip]:focus-visible::after {
+    opacity: 1;
+  }
 </style>
