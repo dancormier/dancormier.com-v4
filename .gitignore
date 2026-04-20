@@ -15,3 +15,10 @@ build/
 
 # Superpowers brainstorming sessions
 .superpowers/
+
+# Gatsby artifacts (safe to ignore transitionally)
+.cache/
+public/
+
+# Lock files from other package managers
+package-lock.json
